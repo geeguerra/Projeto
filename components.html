@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Componentes</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <h1>Guia de Componentes</h1>
+
+  <section class="bloco">
+    <h2>Input padrão</h2>
+
+    <input 
+      type="text" 
+      id="inputPadrao" 
+      class="input-padrao" 
+      placeholder="Digite algo"
+    >
+
+    <button class="btn-padrao" onclick="adicionarLinha()">
+      Adicionar
+    </button>
+  </section>
+
+  <!-- TABELA -->
+  <section class="bloco">
+    <h2>Tabela padrão</h2>
+
+    <table class="table-padrao">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Valor</th>
+        </tr>
+      </thead>
+
+      <tbody id="tableBody"></tbody>
+    </table>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+<!-- tr é linha da tabela -->
