@@ -1,0 +1,40 @@
+
+ 
+body{
+font-family: "Inter", sans-serif;
+width: 1412px;
+height: 982px;
+background: #121212;
+}
+
+header{    
+display: flex;
+width: 1512px;
+height: 90px;
+padding: 1px 978px 10px 13px;
+align-items: center;
+border: 1px solid #333;
+background: #1E1E1E;
+
+}
+
+.titulo-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem; 
+
+}
+h1{
+    color: #D4AF37;
+
+}
+
+img{
+
+width: 165px;
+height: 120px;
+
+}
+#conteudo{
+  
+}
