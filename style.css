@@ -1,0 +1,48 @@
+input{
+    display: flex;
+width: 289px;
+height: 36px;
+justify-content: center;
+align-items: center;
+border-radius: 6px;
+border: 2px solid #A0A0A0;
+background: rgba(255, 255, 255, 0.00);
+font-size: 14px;
+}
+
+body {
+    background: #1e1e1e;
+    color: #ccc;
+    font-family: Arial;
+  }
+  
+  .verde { color: #00ff66; }
+  .amarelo { color: #ffd633; }
+  .vermelho { color: #ff3b3b; }
+  
+  tr:hover {
+    background: #2a2a2a;
+  }
+  
+  a {
+    color: #aaa;
+    text-decoration: none;
+  }
+
+.table {
+    width: 70%;
+    border-collapse: collapse;
+    margin-top: 20px; /*espaço entre os inputs e a tabela */
+}
+
+.table th, .table td {
+    padding: 15px; /* espaçamento */
+    text-align: left;
+    border-bottom: 1px solid #333;
+}
+
+/* Cabeçalho ficar em negrito */
+.table th {
+    color: #fff;
+    font-weight: bold;
+}
