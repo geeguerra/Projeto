@@ -1,0 +1,71 @@
+body {
+  background-color: #0f0f0f;
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+  padding: 30px;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+.bloco {
+  margin-bottom: 40px;
+}
+
+.input-padrao {
+  width: 260px;
+  height: 38px;
+  padding: 8px;
+  background-color: transparent;
+  border: 1px solid #555;
+  border-radius: 6px;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.input-padrao::placeholder {
+  color: #aaa;
+}
+
+.input-padrao:focus {
+  border-color: #d4af37;
+  outline: none;
+}
+
+.btn-padrao {
+  height: 38px;
+  padding: 0 18px;
+  border-radius: 6px;
+  border: 1px solid #d4af37;
+  background-color: transparent;
+  color: #d4af37;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-padrao:hover {
+  background-color: #d4af37;
+  color: #000;
+}
+
+.table-padrao {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table-padrao th {
+  border-bottom: 1px solid #d4af37;
+  padding: 12px;
+  text-align: left;
+}
+
+.table-padrao td {
+  padding: 12px;
+  border-bottom: 1px solid #333;
+}
+
+.table-padrao tr:hover {
+  background-color: #1a1a1a;
+}
