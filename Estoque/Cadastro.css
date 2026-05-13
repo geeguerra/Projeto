@@ -1,23 +1,21 @@
-
 body {
-    font-family: "Inter", sans-serif;
-    width: 100%;
-    min-height: 100vh;
-    background: #121212;
-    margin: 0;
-    color: white;
+  font-family: "Inter", sans-serif;
+  margin: 0; 
+  width: 100%;
+  min-height: 100vh;
+  background: #121212;
+  overflow-x: hidden; 
 }
 
-
 header {    
- display: flex;
-width: 100%;
-height: 80px;
-padding: 10 20px;
-margin: none;
-align-items: center;
-border: 1px solid #333;
-background: #1E1E1E
+  display: flex;
+  width: 100%; 
+  height: 80px; 
+  padding: 0 20px; 
+  align-items: center;
+  border-bottom: 1px solid #333;
+  background: #1E1E1E;
+  box-sizing: border-box; 
 }
 
 .titulo-logo {
@@ -25,10 +23,9 @@ background: #1E1E1E
     align-items: center;
     gap: 15px;
 }
-img{
-    width: 165px;
-    height: 105px;
-
+img {
+  width: auto; 
+  height: 85px; 
 }
 
 
@@ -40,9 +37,9 @@ img{
 }
 
 .titulo-logo h1 {
-    font-size: 30px;
-    color: #D4AF37;
-    margin: 0;
+ color: #D4AF37;
+  font-size: 1.5rem; 
+  margin: 0;
 }
 
 
@@ -63,6 +60,15 @@ img{
   
 
 }
+
+.campo input[type="date"]::-webkit-calendar-picker-indicator{
+    filter: invert(1);
+    cursor: pointer;
+}
+
+
+
+
 
 .cardEstoque h2 {
     text-align: center;
@@ -138,12 +144,10 @@ img{
 }
 
 
-.acoes {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  margin-top: 50px;
-   color: #fff;
+.acoes{
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
 }
 
 .acoes span {
@@ -160,12 +164,12 @@ button {
   border-radius: 8px;
   cursor: pointer;
   display: flex;
-width: 307px;
-height: 55px;
+width: 290px;
+height: 45px;
 justify-content: center;
 align-items: center;
 }
 .titulobutton{
-font-size: 20px;
+font-size: 19px;
 }
 
