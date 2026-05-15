@@ -1,3 +1,30 @@
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0; 
+  width: 100%;
+  min-height: 100vh;
+  background: #121212;
+  overflow-x: hidden; 
+}
+
+
+.titulo-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+
+
+.titulo-logo h1 {
+ color: #D4AF37;
+  font-size: 1.5rem; 
+  margin: 0;
+  font-weight: bold;
+}
+
+
 .ContainerEstoque {
     display: flex;
     justify-content: center;
@@ -15,6 +42,15 @@
   
 
 }
+
+.campo input[type="date"]::-webkit-calendar-picker-indicator{
+    filter: invert(1);
+    cursor: pointer;
+}
+
+
+
+
 
 .cardEstoque h2 {
     text-align: center;
@@ -90,12 +126,10 @@
 }
 
 
-.acoes {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  margin-top: 50px;
-   color: #fff;
+.acoes{
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
 }
 
 .acoes span {
@@ -112,12 +146,12 @@ button {
   border-radius: 8px;
   cursor: pointer;
   display: flex;
-width: 307px;
-height: 55px;
+width: 290px;
+height: 45px;
 justify-content: center;
 align-items: center;
 }
 .titulobutton{
-font-size: 20px;
+font-size: 19px;
 }
 

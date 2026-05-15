@@ -7,16 +7,7 @@ body {
   overflow-x: hidden; 
 }
 
-header {    
-  display: flex;
-  width: 100%; 
-  height: 80px; 
-  padding: 0 20px; 
-  align-items: center;
-  border-bottom: 1px solid #333;
-  background: #1E1E1E;
-  box-sizing: border-box; 
-}
+
 
 .cabecalho {
   display: flex;
@@ -41,12 +32,10 @@ h1 {
   color: #D4AF37;
   font-size: 1.5rem; 
   margin: 0;
+  font-weight: bold;
 }
 
-img {
-  width: auto; 
-  height: 60px; 
-}
+
 
 #conteudo {
   padding: 20px;
@@ -54,14 +43,16 @@ img {
 }
 
 .card-container {
-    background-color: #1e1e1e; /* Cor do card */
+    background-color: #1e1e1e; 
     width: 100%;
     max-width: 800px;
     padding: 40px;
     
     border-radius: 8px;
     border: 1px solid #333;
-    color: #D4AF37; /* Tom dourado do texto */
+    color: #D4AF37;
+      box-shadow: 0 0 15px #000;
+      
 }
 
 .card-header {
@@ -81,7 +72,7 @@ img {
     font-size: 0.9rem;
 }
 
-/* Formulário */
+
 .order-form {
     display: flex;
     flex-direction: column;
