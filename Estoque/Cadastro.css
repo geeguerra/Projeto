@@ -155,3 +155,20 @@ align-items: center;
 font-size: 19px;
 }
 
+nav {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #D4AF37;
+}            
+
