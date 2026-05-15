@@ -7,16 +7,7 @@ body {
   overflow-x: hidden; 
 }
 
-header {    
-  display: flex;
-  width: 100%; 
-  height: 80px; 
-  padding: 0 20px; 
-  align-items: center;
-  border-bottom: 1px solid #333;
-  background: #1E1E1E;
-  box-sizing: border-box; 
-}
+
 
 .titulo-logo{
     display: flex;
@@ -24,18 +15,16 @@ header {
     gap: 15px;
 }
 
-img {
-  width: auto; 
-  height: 85px; 
-}
+
 
 .titulo-logo h1{
     color: #D4AF37;
-    font-size: 24px;
-    margin: 0;
+  font-size: 1.5rem; 
+   margin: 0;
+   font-weight: bold;
 }
 
-/* MAIN */
+
 
 .containerLogin{
     display: flex;
@@ -45,7 +34,6 @@ img {
     min-height: calc(100vh - 80px);
 }
 
-/* CARD */
 
 .cardLogin{
     width: 320px;
@@ -53,14 +41,15 @@ img {
     border: 1px solid #333;
     border-radius: 8px;
     padding: 40px;
+    box-shadow: 0 0 15px #000;
 }
 
-/* TITULOS */
+
 
 .cardLogin h2{
     color: #d9d9d9;
     text-align: center;
-    font-size: 34px;
+    font-size: 27px;
     margin-bottom: 10px;
 }
 
@@ -71,7 +60,7 @@ img {
     margin-bottom: 35px;
 }
 
-/* FORM */
+
 
 .formulario{
     display: flex;
@@ -102,7 +91,7 @@ img {
     outline: none;
 }
 
-/* BOTÃO */
+
 
 button{
     height: 50px;
@@ -121,7 +110,7 @@ button:hover{
     color: black;
 }
 
-/* TEXTO */
+
 
 .ou{
     display: block;

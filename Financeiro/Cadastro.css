@@ -7,16 +7,6 @@ body {
   overflow-x: hidden; 
 }
 
-header {    
-  display: flex;
-  width: 100%; 
-  height: 80px; 
-  padding: 0 20px; 
-  align-items: center;
-  border-bottom: 1px solid #333;
-  background: #1E1E1E;
-  box-sizing: border-box; 
-}
 
 .titulo-logo{
     display: flex;
@@ -28,12 +18,9 @@ header {
   color: #D4AF37;
   font-size: 1.5rem; 
   margin: 0;
+  font-weight: bold;
 }
 
-img {
-  width: auto; 
-  height: 85px; 
-}
 
 
 
@@ -53,6 +40,7 @@ img {
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 0 15px #000;
+      
 }
 
 

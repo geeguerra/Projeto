@@ -7,22 +7,13 @@ body {
   overflow-x: hidden; 
 }
 
-header {    
-  display: flex;
-  width: 100%; 
-  height: 80px; 
-  padding: 0 20px; 
-  align-items: center;
-  border-bottom: 1px solid #333;
-  background: #1E1E1E;
-  box-sizing: border-box; 
-}
+
 
 .cabecalho {
     display: flex;
     justify-content: space-between; 
     padding: 10px 0;
-    font-weight: bold;
+   
     color: #fff; 
 }
 
@@ -34,19 +25,19 @@ header {
 .titulo-logo {
     display: flex;
     align-items: center;
-    gap: 15px; 
+    gap: 15px;
 }
 
-h1 {
-    color: #D4AF37;
-    font-size: 1.5rem; 
-    margin: 0;
+
+
+
+.titulo-logo h1 {
+ color: #D4AF37;
+  font-size: 1.5rem; 
+  margin: 0;
+  font-weight: bold;
 }
 
-img {
-  width: auto; 
-  height: 85px; 
-}
 
 #conteudo {
     padding: 20px;

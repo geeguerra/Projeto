@@ -7,39 +7,21 @@ body {
   overflow-x: hidden; 
 }
 
-header {    
-  display: flex;
-  width: 100%; 
-  height: 80px; 
-  padding: 0 20px; 
-  align-items: center;
-  border-bottom: 1px solid #333;
-  background: #1E1E1E;
-  box-sizing: border-box; 
-}
 
 .titulo-logo {
     display: flex;
     align-items: center;
     gap: 15px;
 }
-img {
-  width: auto; 
-  height: 85px; 
-}
 
 
-.logo { 
-    height: 70px !important; 
-    width: auto !important; 
-    object-fit: contain;
-    flex-shrink: 0;
-}
+
 
 .titulo-logo h1 {
  color: #D4AF37;
   font-size: 1.5rem; 
   margin: 0;
+  font-weight: bold;
 }
 
 
