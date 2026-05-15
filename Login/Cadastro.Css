@@ -1,0 +1,128 @@
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0; 
+  width: 100%;
+  min-height: 100vh;
+  background: #121212;
+  overflow-x: hidden; 
+}
+
+
+
+.titulo-logo{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+
+.titulo-logo h1{
+    color: #D4AF37;
+  font-size: 1.5rem; 
+   margin: 0;
+   font-weight: bold;
+}
+
+
+
+.containerLogin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: calc(100vh - 80px);
+}
+
+
+.cardLogin{
+    width: 320px;
+    background: #1E1E1E;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 0 15px #000;
+}
+
+
+
+.cardLogin h2{
+    color: #d9d9d9;
+    text-align: center;
+    font-size: 27px;
+    margin-bottom: 10px;
+}
+
+.subtitulo{
+    text-align: center;
+    color: #8f8f8f;
+    font-size: 28px;
+    margin-bottom: 35px;
+}
+
+
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+}
+
+.campo{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.campo label{
+    color: #D4AF37;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.campo input,
+.campo select{
+    height: 48px;
+    border-radius: 6px;
+    border: 1px solid #777;
+    background: transparent;
+    padding: 0 12px;
+    color: white;
+    font-size: 15px;
+    outline: none;
+}
+
+
+
+button{
+    height: 50px;
+    margin-top: 20px;
+    border-radius: 8px;
+    border: 2px solid #D4AF37;
+    background: transparent;
+    color: #D4AF37;
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover{
+    background: #D4AF37;
+    color: black;
+}
+
+
+
+.ou{
+    display: block;
+    text-align: center;
+    color: #8f8f8f;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.cadastro{
+    display: block;
+    text-align: center;
+    color: #d9d9d9;
+    font-size: 15px;
+}
