@@ -4,38 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Gestão - Estoque</title>
-    <link rel="stylesheet" href="Cadastro.css">
-    <link rel="stylesheet" href="../hearder.css">
-    <link rel="stylesheet" href="../header.css">
-
+    <link rel="stylesheet" href="TelaEstoque.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  
-    <!-- header -->
-    <header class="header">
-      
-     
-
+    <header>
         <div class="titulo-logo">
-      <img src="logo .png" alt="Logo" class="logo">
-      <h1>Sistema de Gestão | Succeed & Failed</h1> 
-       
-      
-      <select name="menu" id="Selecionar">
-        <option>Selecionar</option>
-      <option>Estoque</option>
-        <option>Funcinário</option>
-        <option>Pedidos</option>
-        <option>Produto</option>
-        <option>Financeiro</option></select>
-       
-      <img src="../assets/logo.png" alt="Logo" class="logo">
-      <h1>Sistema de Gestão | Succeed & Failed</h1>
-  </div>
-  </header>
-
-
+            <img src="../assets/logo.png" alt="Logo" class="logo">
+            <h1>Sistema de Gestão | Succeed & Failed</h1>
+        </div>
+    </header>
 
     <main class="ContainerEstoque">
         <div class="cardEstoque">
@@ -62,20 +43,9 @@
                 </div>
 
                 <div class="campo">
-                    <input type="date">
+                    <input type="text" placeholder="Data (dd/mm/aa)">
                 </div>
-
             </div>
-
-
-
-  <div class="acoes">
-                   <button><p class="titulobutton">Lançar Estoque</p></button>
-                </div>
-
-
-
-
 
             <table class="tabelaEstoque">
                 <thead>
@@ -112,7 +82,9 @@
                 </tbody>
             </table>
 
-            
+            <div class="acoes">
+                <button><p class="titulobutton">Estoque</p></button>
+            </div>
         </div>
     </main>
     

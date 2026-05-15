@@ -1,9 +1,62 @@
-/* Layout Base */
+.btn-edit{
 body {
-    background-color: #0c0c0c; /* Cor de fundo escura conforme o print */
-    font-family: "Inter", sans-serif;
-    margin: 0;
+  font-family: "Inter", sans-serif;
+  margin: 0; 
+  width: 100%;
+  min-height: 100vh;
+  background: #121212;
+  overflow-x: hidden; 
 }
+
+
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between; 
+    padding: 10px 0;
+   
+    color: #fff; 
+}
+
+.cabecalho span {
+    flex: 1; 
+    text-align: left;
+}
+
+.titulo-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+
+
+.titulo-logo h1 {
+ color: #D4AF37;
+  font-size: 1.5rem; 
+  margin: 0;
+  font-weight: bold;
+}
+
+
+#conteudo {
+    padding: 20px;
+    color: white;
+}
+
+
+  .btn-edit{
+    background-color: transparent;
+   color: #A0A0A0;
+   border: none;
+  }
+
+  .btn-delete{
+    background-color: transparent;
+    color: #FF0000;
+    border: none;
+  }
 
 .tabela {
     width: 90%;
