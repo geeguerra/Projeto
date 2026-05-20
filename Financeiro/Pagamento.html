@@ -3,19 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Folha de Pagamento</title>
+    <title>Pagamento</title>
     <link rel="stylesheet" href="Pagamento.css">
+    <link rel="stylesheet" href="../header.css">
+</head>
+<body>
+    
+    <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Folha de Pagamento</title>
+<link rel="stylesheet" href="Pagamento.css">
 </head>
 
 <body>
+    <header class="header">   
+        <div class="titulo-logo">
+      <img src="../assets/logo.png" alt="Logo" class="logo">
+      <h1>Sistema de Gestão | Succeed & Failed</h1>
+  </div>
+  </header>
 
-<header>
 
-    <div class="header-content">
+<div class="container">
 
-        <div class="logo-box">
-            <img src="logo.png" alt="Logo">
-            <span>Succeed Failed</span>
+
+    <div id="listagem" class="tela">
+        <div class="card">
+            <h2>Folha de Pagamento</h2>
+
+            <a href="#cadastro" class="btn">Novo Pagamento</a>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Descrição</th>
+                        <th>Valor</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Salário</td>
+                        <td>R$ 5.000</td>
+                        <td>
+                            <a href="#detalhes" class="btn-sec">Detalhes</a>
+                            <a href="#cadastro" class="btn">Editar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <h1 class="titulo">Folha de Pagamento</h1>
