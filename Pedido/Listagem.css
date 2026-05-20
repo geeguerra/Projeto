@@ -2,14 +2,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body{
     background-color: #000000;
     color: #E0E0E0;
 }
-
 
 .header{
     width: 100%;
@@ -48,7 +47,6 @@ body{
     width: 90%;
     min-height: 650px;
     background-color: #1E1E1E;
-    border: 3px solid #008CFF;
     border-radius: 8px;
     padding: 50px;
 }
@@ -72,12 +70,6 @@ body{
     margin-bottom: 90px;
 }
 
-.search-box i{
-    color: #777777;
-    font-size: 18px;
-    margin-right: 10px;
-}
-
 .search-box input{
     width: 100%;
     height: 100%;
@@ -88,30 +80,38 @@ body{
     font-size: 16px;
 }
 
+
 .pedido-lista{
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     gap: 28px;
 }
 
 .pedido-item{
-    width: 78%;
+    width: 90%;
     height: 58px;
     border: 2px solid #777777;
     border-radius: 8px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 100px 1fr 180px 150px;
     align-items: center;
-    justify-content: space-between;
     padding: 0 20px;
     color: #BDBDBD;
 }
 
+.pedido-item:hover{
+    border-color: #008CFF;
+    transform: scale(1.01);
+}
+
 .status.andamento{
     color: #44DF2F;
+    font-weight: bold;
 }
 
 .status.cancelado{
     color: #FF5C5C;
+    font-weight: bold;
 }
 
 .total{
