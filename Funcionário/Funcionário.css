@@ -96,6 +96,7 @@ body {
 .input-group input, 
 .input-group select {
     background-color: #242424;
+    
     border: 1px solid #444;
     padding: 12px;
     border-radius: 6px;
