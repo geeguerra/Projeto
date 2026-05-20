@@ -20,7 +20,7 @@ async function carregarFuncionarios() {
                 <span>${func.cargo}</span>
                 <span>R$ ${func.salario}</span>
                 <div class="acoes">
-                    <button onclick="editarFuncionario(${func.id})" class="btn-edit">Editar</button>
+                    <button onclick="editarFuncionario(${func.id})" class="btn-edit"> <a href="Cadastro.html">Editar</a></button>
                     <button onclick="deletarFuncionario(${func.id})" class="btn-delete">Excluir</button>
                 </div>
             `;
