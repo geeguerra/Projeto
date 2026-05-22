@@ -13,6 +13,7 @@ body {
     display: flex;
     align-items: center;
     gap: 15px;
+    gap: 25px;
 }
 
 
@@ -125,4 +126,21 @@ button:hover{
     text-align: center;
     color: #d9d9d9;
     font-size: 15px;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #D4AF37;
 }
