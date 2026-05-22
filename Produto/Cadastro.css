@@ -1,56 +1,33 @@
-body{
-
-    font-family: "Inter", sans-serif;
-    width: 100%;
-    min-height: 100vh;
-    background: #121212;
-    margin: 0;
-    padding: 0;
-    color: white;
-
-
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0; 
+  width: 100%;
+  min-height: 100vh;
+  background: #121212;
+  overflow-x: hidden; 
 }
 
-header{    
-display: flex;
-width: 100%;
-height: 80px;
-padding: 10 20px;
-margin: none;
-align-items: center;
-border: 1px solid #333;
-background: #1E1E1E;
 
-}
 
 .titulo-logo {
     display: flex;
     align-items: center;
     gap: 0.3rem; 
+    font-weight: bold;
 
 }
 
 
 h1{
     color: #D4AF37;
-    font-size: 30px;
-
+  font-size: 1.5rem; 
+  margin: 0;
+  font-weight: bold;
 }
 
-img{
-
-   width: 165px;
-    height: 105px;
 
 
-}
 
-.logo { 
-    height: 70px !important; 
-    width: auto !important; 
-    object-fit: contain;
-    flex-shrink: 0;
-}
 
 #conteudo{
 
@@ -121,7 +98,7 @@ td:nth-child(4) { width: 30%; }
 td:nth-child(5) { text-align: right; }
 
 
-.img {
+.imgbloco {
   width: 45px;
   height: 45px;
   background: #ccc;
@@ -132,12 +109,12 @@ td:nth-child(5) { text-align: right; }
 .vermelho { color: red; }
 .amarelo { color: yellow; }
 
-/* PREÇO */
+
 .preco {
   text-align: right;
 }
 
-/* BOTÃO */
+
 .acoes {
   display: flex;
   flex-direction: column;

@@ -1,11 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <title>Sistema de Gestão - Produto</title>
-    <link rel="stylesheet" href="Cadastro.css">
-    <link rel="stylesheet" href="../hearder.css">i
-    <link rel="stylesheet" href="../header.css">
+    <link rel="stylesheet" href="TelaProduto.css">
 
     <!--Link da Fonte-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,32 +13,12 @@
 </head>
 <body>
 
-<!-- header -->
-<header class="header">
-      
-     
-
-  <div class="titulo-logo">
-<img src="logo .png" alt="Logo" class="logo">
-<h1>Sistema de Gestão | Succeed & Failed</h1> 
- 
-
-<select name="menu" id="Selecionar">
-  <option>Selecionar</option>
-<option value="Estoque/Cadastro.html">Estoque </option>
-  <option>Funcionário <a href="../Funcionarios/"></a></option>
-  <option>Pedidos <a href="../Pedido/"></a></option>
-  <option>Produto <a href="../Produto/"></a></option>
-  <option>Financeiro <a href="../Financeiro/"></a></option></select>
- 
-</div>
-</header>
     <!-- header -->
     <header class="header">
           <div class="titulo-logo">
        <img src="../assets/logo.png" alt="Logo" class="logo">
         <h1>Sistema de Gestão | Succeed & Failed</h1>
-    </div>   
+    </div>
     </header>
 
 <main class="container">
@@ -47,13 +26,11 @@
   <div class="card">
     <h2>Lista de produto</h2>
 
-    
-    
     <table>
       <tbody>
 
         <tr>
-          <td><div class="imgbloco"></div></td>
+          <td><div class="img"></div></td>
           <td>Nome do produto</td>
           <td>Código</td>
           <td class="verde">Qtd Estoque</td>
@@ -61,7 +38,7 @@
         </tr>
 
         <tr>
-          <td><div class="imgbloco"></div></td>
+          <td><div class="img"></div></td>
           <td>Nome do produto</td>
           <td>Código</td>
           <td class="vermelho">Baixa quantidade</td>
@@ -69,10 +46,9 @@
         </tr>
 
         <tr>
-          <td><div class="imgbloco"></div></td>
+          <td><div class="img"></div></td>
           <td>Nome do produto</td>
           <td>Código</td>
-
           <td class="amarelo">Média Quantidade</td>
           <td>R$:0,00</td>
         </tr>
@@ -83,14 +59,18 @@
     <!-- botão -->
     <div class="acoes">
       <p>Atualizar Estoque</p>
-      <button id="btnEstoque"> <p class="titulobutton">Estoque</p></button>
+      <button> <p class="titulobutton">Estoque</p></button>
     </div>
 
   </div>
 
 </main>
 
-  <script src="produto.js"></script>
-
 </body>
 </html>
+
+
+
+
+
+
