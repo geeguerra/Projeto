@@ -2,51 +2,46 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Sistema de Gestão</title>
-    <link rel="stylesheet" href="hearder.css">
+    <title>Sistema de Gestão - Listagem</title>
+    <link rel="stylesheet" href="../hearder.css">
+    <link rel="stylesheet" href="Listagem.js">
     <link rel="stylesheet" href="Listagem.css">
-
-    <!--Link da Fonte-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <!-- header -->
-    <header class="header">
+    <header class="header">   
           <div class="titulo-logo">
-        <img src="logo .png" alt="Logo" class="logo">
-        <h1>Sistema de Gestão | Succeed & Failed</h1>
+        <img src="../assets/logo.png" alt="Logo" class="logo">
+        <h1>Sistema de Gestão | Succeed & Failed</h1> 
+         
+        
+        <select name="menu" id="Selecionar">
+          <option>Selecionar</option>
+        <option>Estoque <a href=""></a></option>
+          <option>Funcinário</option>
+          <option>Pedidos</option>
+          <option>Produto</option>
+          <option>Financeiro</option></select>
+         
+
+
     </div>
     </header>
 
     <div class="tabela">
-
-        <div class="cabecalho">
+      <div class="linha-grid cabecalho-estilo">
           <span>Nome</span>
           <span>Cargo</span>
           <span>Salário</span>
-          <span></span>
-        </div>
-    </div>
-
-        <div id="lista-funcionarios"></div>
-  
+          <span class="txt-direita"></span>
       </div>
+  
+      <div id="lista-funcionarios"></div>
 
-
-  <div class="acoes">
-      <button class="btn-edit">
-        Editar
-      </button>
-
-      <button class="btn-delete">
-        Excluir
-      </button>
   </div>
   
+  <script src="Listagem.js"></script>
   
- <script src="./func.js"></script>
 </body>
 </html>

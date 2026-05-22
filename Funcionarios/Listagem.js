@@ -1,67 +1,52 @@
-let funcionarios = [];
-let editIndex = null;
+const API_URL = "https://localhost:7093/api/Funcionario"; 
 
-function salvar() {
-    const nome = document.getElementById("nome").value;
-    const cargo = document.getElementById("cargo").value;
-    const salario = document.getElementById("salario").value;
+async function carregarFuncionarios() {
+    const lista = document.getElementById('lista-funcionarios');
+    
+    try {
+        const response = await fetch(API_URL);
+        if (!response.ok) throw new Error("Erro ao aceder à API");
+        
+        const funcionarios = await response.json();
+        lista.innerHTML = ""; 
 
-    if (!nome || !cargo || !salario) {
-        alert("Preencha todos os campos!");
-        return;
-    }
-
-    const funcionario = { nome, cargo, salario };
-
-    if (editIndex === null) {
-        funcionarios.push(funcionario);
-    } else {
-        funcionarios[editIndex] = funcionario;
-        editIndex = null;
-    }
-
-    limparCampos();
-    renderizar();
-}
-
-function renderizar() {
-    const lista = document.getElementById("lista-funcionarios");
-    lista.innerHTML = "";
-
-    funcionarios.forEach((f, index) => {
-        lista.innerHTML += `
-            <div class="linha">
-                <span>${f.nome}</span>
-                <span>${f.cargo}</span>
-                <span>R$ ${f.salario}</span>
-                <span>
-                    <button onclick="editar(${index})">Editar</button>
-                    <button onclick="excluir(${index})">Excluir</button>
-                </span>
-            </div>
-        `;
-    });
-}
-
-function editar(index) {
-    const f = funcionarios[index];
-
-    document.getElementById("nome").value = f.nome;
-    document.getElementById("cargo").value = f.cargo;
-    document.getElementById("salario").value = f.salario;
-
-    editIndex = index;
-}
-
-function excluir(index) {
-    if (confirm("Deseja excluir este funcionário?")) {
-        funcionarios.splice(index, 1);
-        renderizar();
+        funcionarios.forEach(func => {
+            const linha = document.createElement('div');
+            // Usa a mesma classe de grid do cabeçalho
+            linha.className = 'linha-grid'; 
+            
+            linha.innerHTML = `
+                <span>${func.nome}</span>
+                <span>${func.cargo}</span>
+                <span>R$ ${func.salario}</span>
+                <div class="acoes">
+                    <button onclick="editarFuncionario(${func.id})" class="btn-edit"> <a href="Cadastro.html">Editar</a></button>
+                    <button onclick="deletarFuncionario(${func.id})" class="btn-delete">Excluir</button>
+                </div>
+            `;
+            lista.appendChild(linha);
+        });
+    } catch (error) {
+        console.error("Erro:", error);
+        lista.innerHTML = `<p style="color: #ffcc00; text-align: center; margin-top: 20px;">
+            Aguardando conexão com a API...
+        </p>`;
     }
 }
 
-function limparCampos() {
-    document.getElementById("nome").value = "";
-    document.getElementById("cargo").value = "";
-    document.getElementById("salario").value = "";
+function editarFuncionario(id) {
+    window.location.href = `../Cadastro/cadastro.html?id=${id}`;
 }
+
+async function deletarFuncionario(id) {
+    if (confirm("Tem certeza que deseja excluir este funcionário?")) {
+        try {
+            await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
+            carregarFuncionarios(); 
+        } catch (error) {
+            alert("Erro ao eliminar.");
+        }
+    }
+}
+
+carregarFuncionarios();
