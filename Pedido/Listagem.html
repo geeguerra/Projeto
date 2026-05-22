@@ -12,34 +12,30 @@
 </head>
 <body>
 
-
-  <!-- header -->
-  <header class="header">
-      
-     
-
-    <div class="titulo-logo">
-  <img src="logo .png" alt="Logo" class="logo">
-  <h1>Sistema de Gestão | Succeed & Failed</h1> 
-   
-  
-  <select name="menu" id="Selecionar">
-    <option>Selecionar</option>
-  <option>Estoque <a href=""></a></option>
-    <option>Funcinário</option>
-    <option>Pedidos</option>
-    <option>Produto</option>
-    <option>Financeiro</option></select>
-   
-</div>
-</header>
     <header class="header">
-        <div class="titulo-logo">
-      <img src="../assets/logo.png" alt="Logo" class="logo">
-      <h1>Sistema de Gestão | Succeed & Failed</h1>
-  </div>
-  </header>
 
+        <div class="titulo-logo">
+            <img src="../assets/logo.png" alt="Logo" class="logo">
+            <h1>Sistema de Gestão | Succeed & Failed</h1>
+        </div>
+    
+        <nav id="menu">
+            <a href="rh.html">RH</a>
+            <a href="../Funcionarios/Listagem.html">Funcionários</a>
+            <a href="../Estoque/Cadastro.html">Estoque</a>
+            <a href="../Cliente/Fornecedor/FornecedorCliente.html">Fornecedores</a>
+            <a href="../Produto/Cadastro.html">Produtos</a>
+            <a href="../Estoque/Cadastro.html">Estoque</a>
+            <a href="../Financeiro/Pagamento.html">Pagamento</a>
+            <a href="../Cliente/Fornecedor/FornecedorCliente.html">Clientes</a>
+            <a href="../Pedido/Cadastro.html">Pedido</a>
+            <a href="../Pedido/Listagem.html">Listagem</a>
+            <a href="../Login/Cadastro.html">Login</a>
+        </nav>
+    </header>
+</div>
+
+ 
 
 
 
@@ -55,62 +51,15 @@
 
             </div>
 
-            <div class="pedido-lista">
-
-                <div class="pedido-item">
-
-                    <span>ID: 1</span>
-
-                    <span>Cliente 1</span>
-
-                    <span class="status andamento">
-                        Em andamento
-                    </span>
-
-                    <span class="total">
-                        Total: R$0,00
-                    </span>
-
-                </div>
-
-
-                <div class="pedido-item">
-
-                    <span>ID: 2</span>
-
-                    <span>Cliente 2</span>
-
-                    <span class="status cancelado">
-                        Cancelado
-                    </span>
-
-                    <span class="total">
-                        Total: R$0,00
-                    </span>
-
-                </div>
-
-                <div class="pedido-item">
-
-                    <span>ID: 3</span>
-
-                    <span>Cliente 3</span>
-
-                    <span class="status andamento">
-                        Em andamento
-                    </span>
-
-                    <span class="total">
-                        Total: R$0,00
-                    </span>
-
-                </div>
+            <div class="pedido-lista" id="lista-pedidos">
 
             </div>
 
         </section>
 
     </main>
+
+    <script src="Listagem.js"></script>
 
 </body>
 </html>
