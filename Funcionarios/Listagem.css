@@ -8,8 +8,6 @@ body {
   overflow-x: hidden; 
 }
 
-
-
 .cabecalho {
     display: flex;
     justify-content: space-between; 
@@ -28,9 +26,6 @@ body {
     align-items: center;
     gap: 15px;
 }
-
-
-
 
 .titulo-logo h1 {
  color: #D4AF37;
@@ -58,70 +53,71 @@ body {
     border: none;
   }
 
-  .tabela {
-    padding: 40px 60px; 
-    max-width: 1200px;
-    margin: 0 auto;
+.tabela {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+    color: white;
 }
 
-.cabecalho, .funcionario-row {
-    display: flex;
+/* A estrutura mágica das colunas */
+.linha-grid {
+    display: grid;
+    /* Define 4 colunas com larguras proporcionais */
+    grid-template-columns: 2fr 1.5fr 1.5fr 120px; 
     align-items: center;
-    padding: 20px 0;
-    border-bottom: 1px solid #222; 
+    padding: 15px 10px;
+    border-bottom: 1px solid #222;
 }
 
-.cabecalho span, .funcionario-row span {
-    flex: 1; 
+/* Estilo do Topo da Tabela */
+.cabecalho-estilo {
+    font-weight: bold;
+    border-bottom: 1px solid #444;
+    text-transform: uppercase;
+    font-size: 13px;
     color: #fff;
-    font-size: 14px;
 }
 
+.txt-direita {
+    text-align: right;
+}
+
+/* Botões e Ações */
 .acoes {
     display: flex;
-    gap: 40px;
-    flex: 0.5; 
-    justify-content: right;
-    margin-right: 500px;
+    justify-content: flex-end;
+    gap: 25px;
 }
-
-.funcionario-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1500px 0;
-}
-
 
 .btn-edit, .btn-delete {
-    background-color: transparent;
+    background: none;
     border: none;
     cursor: pointer;
-    font-family: "Inter", sans-serif;
-    font-size: 14px; 
-    padding: 0; 
-    margin: 0;
-    line-height: 1; 
-    display: flex; 
-    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0;
 }
 
 .btn-edit {
-    color: #A0A0A0; 
+    color: #A0A0A0;
 }
 
 .btn-edit:hover {
-    color: #fff; 
+    color: #ffffff;
 }
 
 .btn-delete {
     color: #FF0000;
-    font-weight: 500; 
 }
 
 .btn-delete:hover {
-    color: #ff4d4d; 
+    color: #ff4d4d;
 }
+
+a{
+    color: #E0E0E0;
+    text-decoration: none;
 nav {
     display: flex;
     gap: 30px;
