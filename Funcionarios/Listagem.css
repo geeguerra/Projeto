@@ -113,3 +113,8 @@ body {
 .btn-delete:hover {
     color: #ff4d4d;
 }
+
+a{
+    color: #E0E0E0;
+    text-decoration: none;
+}
