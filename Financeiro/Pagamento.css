@@ -85,6 +85,24 @@ label{
     margin-bottom: 8px;
     font-size: 14px;
     color: #E0E0E0;
+
+
+button {
+    padding: 8px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    border: 1px solid #FFC107;
+    background: transparent;
+    color: #FFC107;
+    font-size: 14px;
+}
+
+.btn-sec {
+  
+    color: #000;
+    border: none;
 }
 
 .linha-inputs input
@@ -163,4 +181,31 @@ td{
         text-align: center;
     }
 
+#cadastro:target
+#detalhes:target{
+    display: none;
+}
+nav {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #D4AF37;
+}        
+a{
+    color: white;
+    text-decoration: none;
+}
+
+a:hover{
+    color: #D4AF37;
 }
