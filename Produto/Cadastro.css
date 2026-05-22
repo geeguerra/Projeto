@@ -9,6 +9,7 @@ body {
 
 
 
+
 .titulo-logo {
     display: flex;
     align-items: center;
@@ -160,4 +161,18 @@ nav a {
 
 nav a:hover {
     color: #D4AF37;
-}            
+} 
+
+
+
+
+#message-box {
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 500;
+    display: none;
+}
+.msg-error { background-color: #fee2e2; color: var(--error-color); border: 1px solid #F41C40; }
+.msg-success { background-color: #d1fae5; color: var(--success-color); border: 1px solid #34d399; }
