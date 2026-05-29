@@ -1,49 +1,84 @@
 const apiUrl = "https://localhost:7093/api/Produtos/";
 
-// Selecionando os elementos
-const codigoElemento = document.querySelectorAll(".info-valor")[0];
-const descricaoElemento = document.querySelectorAll(".info-valor")[1];
-const precoElemento = document.querySelectorAll(".info-valor")[2];
-const estoqueElemento = document.querySelectorAll(".info-valor")[3];
-const valorTotalElemento = document.querySelectorAll(".info-valor")[4];
+const container = document.getElementById("produtos-container");
 
-async function carregarProduto() {
+async function carregarProdutos() {
     try {
+
         const response = await fetch(apiUrl);
-        const dados = await response.json();
+        const produtos = await response.json();
 
-        console.log("Dados recebidos da API:", dados);
+        console.log(produtos);
 
-        // AJUSTE AQUI: Se a API retorna uma lista, pegamos o primeiro [0]
-        // Se ela retornar o objeto direto, use apenas: const produto = dados;
-        const produto = Array.isArray(dados) ? dados[0] : dados;
+        container.innerHTML = "";
 
-        if (produto) {
-            // Preenchendo os campos com os nomes exatos das propriedades da sua API
-            codigoElemento.textContent = produto.codigo || "Não informado";
-            descricaoElemento.textContent = produto.descricao || "Sem descrição";
+        produtos.forEach(produto => {
 
-            // Formatando o preço corretamente (usando Number() para garantir que é número)
             const precoNum = Number(produto.preco);
-            const qtdNum = Number(produto.qtdEstoque);
+            const qtdNum = Number(produto.quantidadeEstoque);
 
-            precoElemento.textContent = precoNum.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            const total = precoNum * qtdNum;
+
+            const card = `
             
-            estoqueElemento.textContent = `${qtdNum} unidades`;
+                <section class="card-produto">
 
-            // Cálculo do Total com segurança para não gerar NaN
-            if (!isNaN(precoNum) && !isNaN(qtdNum)) {
-                const total = precoNum * qtdNum;
-                valorTotalElemento.textContent = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-            } else {
-                valorTotalElemento.textContent = "Erro no cálculo";
-            }
-        }
+
+                  <h2 class="card-titulo">${produto.nomeProduto}</h2>
+
+                    <div class="info-linha">
+                        <span class="info-titulo">Código:</span>
+                        <span class="info-valor">${produto.codigo}</span>
+                    </div>
+
+                  
+                    <div class="info-linha">
+                        <span class="info-titulo">Preço unitário:</span>
+                        <span class="info-valor">
+                            ${precoNum.toLocaleString('pt-BR', {
+                                style: 'currency',
+                                currency: 'BRL'
+                            })}
+                        </span>
+                    </div>
+
+                    <div class="info-linha">
+                        <span class="info-titulo">Qtd Estoque:</span>
+                        <span class="info-valor estoque-destaque">
+                            ${qtdNum} unidades
+                        </span>
+                    </div>
+
+                    <div class="info-linha">
+                        <span class="info-titulo">Valor total:</span>
+                        <span class="info-valor">
+                            ${total.toLocaleString('pt-BR', {
+                                style: 'currency',
+                                currency: 'BRL'
+                            })}
+                        </span>
+                    </div>
+
+                    <div class="actions-area">
+                        <button class="BtnDetalhesProduto">
+                            Excluir
+                        </button>
+                    </div>
+
+                </section>
+
+            `;
+
+            container.innerHTML += card;
+
+        });
 
     } catch (error) {
-        console.error("Erro detalhado:", error);
-        alert("Erro ao conectar com a API. Verifique se o servidor backend está rodando.");
+
+        console.error("Erro:", error);
+        alert("Erro ao carregar produtos");
+
     }
 }
 
-carregarProduto();
+carregarProdutos();
