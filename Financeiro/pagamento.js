@@ -20,6 +20,7 @@ async function getPagamentos() {
             const linha = document.createElement("tr");
 
             linha.innerHTML = `
+            
 
                 <td>
                 
