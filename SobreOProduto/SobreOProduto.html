@@ -3,63 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Gestão</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+
+    <title>Sistema de Gestão - Sobre o Produto</title>
     <link rel="stylesheet" href="SobreOProduto.css">
     <link rel="stylesheet" href="../hearder.css">
+    
+<link rel="stylesheet" href="../hearder.css">
+    <link rel="stylesheet" href="SobreOProduto.css">
 </head>
+
 <body>
 
-    <header class="main-header">
-        <div class="logo-container">
-            <img src="img/image.png" alt="Logo Succeed & Failed" class="logo-img">
-            <h1>Sistema de Gestão | <span class="destaque-header">Succeed & Failed</span></h1>
-        </div>
-    </header>
+  <header class="header">
+
+    <div class="titulo-logo">
+        <img src="../assets/logo.png" alt="Logo" class="logo">
+        <h1>Sistema de Gestão | Succeed & Failed</h1>
+    </div>
+
+    <nav id="menu">
+        <a href="rh.html">RH</a>
+        <a href="../Funcionarios/Listagem.html">Funcionários</a>
+        <a href="../Estoque/Cadastro.html">Estoque</a>
+        <a href="../Produto/Cadastro.html">Produtos</a>
+        <a href="../Financeiro/Cadastro.html">Financeiro</a>
+        <a href="../Financeiro/Pagamento.html">Pagamento</a>
+        <a href="../Pedido/Cadastro.html">Pedido</a>
+    </nav>
+
+</header>
+
 
     <main class="content-container">
-        <section class="card-produto">
-            
-            <h2 class="card-titulo">Sobre o produto</h2>
 
-            <div class="info-linha">
-                <span class="info-titulo">Código:</span>
-                <span class="info-valor">PROD12345</span>
-            </div>
+      
 
-            <div class="info-linha">
-                <span class="info-titulo">Descrição:</span>
-                <span class="info-valor">
-                    Descrição detalhada do produto. Aqui você pode informar características, benefícios e outras informações relevantes.
-                </span>
-            </div>
+       
+        <section id="produtos-container"></section>
 
-            <div class="info-linha">
-                <span class="info-titulo">Preço unitário:</span>
-                <span class="info-valor">R$ 99,90</span>
-            </div>
+    </main>
 
-            <div class="info-linha">
-                <span class="info-titulo">Qtd Estoque:</span>
-                <span class="info-valor estoque-destaque">150 unidades</span>
-            </div>
+   
+    <script src="SobreoProduto.js"></script>
 
-            <div class="info-linha">
-                <span class="info-titulo">Valor total em estoque:</span>
-                <span class="info-valor">R$ 14.985,00</span>
-            </div>
-
-            <div class="info-linha no-border">
-                <span class="info-titulo">Última atualização:</span>
-                <span class="info-valor">20/05/2024 15:45</span>
-            </div>
-            
-            <div class="actions-area">
-          
-
-                <button class="BtnDetalhesProduto">Excluir</button>
-                   
+</body>
+</html>
