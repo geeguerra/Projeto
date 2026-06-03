@@ -1,207 +1,181 @@
-/* --- Reset Geral --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
 }
 
-body {
-    background-color: #0A0A0A; /* Fundo geral preto do sistema */
-    color: #E0E0E0;
-    padding: 20px;
+body{
+    background:#050505;
+    color:white;
 }
 
-/* --- Layout Principal (Lado a Lado) --- */
-.container {
-    display: flex;
-    max-width: 1400px;
-    margin: 0 auto;
-    gap: 30px;
-    align-items: flex-start;
-    padding: 20px 0;
-}
-
-/* --- Cards/Painéis (Layout Base) --- */
-.card {
-    background-color: #121212; /* Cinza bem escuro dos cards */
-    border: 1px solid #222;
-    border-radius: 16px;
-    padding: 30px;
-}
-
-.card h2 {
-    color: #FFC107; /* Amarelo ouro do sistema */
-    font-size: 24px;
-    margin-bottom: 25px;
-    font-weight: 500;
-}
-
-/* Link para criar novo pagamento */
-.btn {
-    display: inline-block;
-    margin-bottom: 20px;
-    transition: color 0.2s;
-}
-
-.btn:hover {
-    color: #FFF !important;
-}
-
-/* --- Estrutura de Formulários --- */
-#form-cadastro {
-    width: 100%;
-}
-
-.linha-inputs {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 20px;
-}
-
-.campo {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.campo label {
-    margin-bottom: 8px;
-    font-size: 14px;
-    color: #FFC107;
-}
-
-/* Customização dos Inputs e Selects */
-.linha-inputs input,
-.linha-inputs select {
-    width: 100%;
-    height: 48px;
-    padding: 0 16px;
-    background-color: #1A1A1A; /* Fundo dos inputs ligeiramente mais claro que o card */
-    border: 1px solid #333;
-    border-radius: 8px;
-    color: #E0E0E0;
-    font-size: 15px;
-    outline: none;
-    transition: border-color 0.2s;
-}
-
-/* Estilo do calendário nativo do input type="date" */
-.linha-inputs input[type="date"]::-webkit-calendar-picker-indicator {
-    filter: invert(0.8); /* Deixa o ícone de calendário claro */
-    cursor: pointer;
-}
-
-.linha-inputs input::placeholder {
-    color: #666;
-}
-
-/* Efeito de Clique/Foco nos inputs */
-.linha-inputs input:focus,
-.linha-inputs select:focus {
-    border-color: #FFC107;
-}
-
-/* --- Seção de Botões --- */
-.botoes {
-    display: flex;
-    gap: 15px;
-    margin-top: 25px;
-    margin-bottom: 40px;
-}
-
-.botoes button {
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-/* Botão Salvar (Borda amarela, texto amarelo) */
-.botoes button.btn-sec {
-    background: transparent;
-    border: 1px solid #FFC107;
-    color: #FFC107;
-}
-
-.botoes button.btn-sec:hover {
-    background-color: #FFC107;
-    color: #0A0A0A;
-}
-
-/* Botão Cancelar (Padrão opaco) */
-.botoes button[type="reset"] {
-    background: transparent;
+.folha-container{
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
     border: 1px solid #444;
-    color: #AAA;
+    border-radius: 10px;
+    background: #070707;
+    display: flex;
+    justify-content: center; /* centraliza horizontal */
+    align-items: center;     /* centraliza vertical */
+    gap: 50px;
+    padding: 30px 50px;
 }
 
-.botoes button[type="reset"]:hover {
-    border-color: #666;
-    color: #FFF;
+.formulario{
+    flex:1;
 }
 
-/* --- Tabelas (Listagem Geral e Histórico) --- */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
+.resultado{
+    flex:1;
+    padding-left:10px;
 }
 
-th {
-    text-align: left;
-    padding: 12px;
-    color: #FFC107;
-    font-size: 14px;
-    font-weight: 600;
-    border-bottom: 1px solid #222;
+.linha{
+    width:1px;
+    background:#555;
 }
 
-td {
-    padding: 14px 12px;
-    color: #E0E0E0;
-    font-size: 14px;
-    border-bottom: 1px solid #1A1A1A;
+.formulario h1{
+    text-align:center;
+    color:#bdbdbd;
+    font-size:24px;
+    margin-bottom:10px;
 }
 
-/* Estilização para links de ações dentro das tabelas (Detalhes / Editar) */
-td a {
-    text-decoration: none;
-    transition: color 0.2s;
+.formulario h2,
+.resultado h2{
+    text-align:center;
+    color:#d4af37;
+    font-size:18px;
+    font-weight:400;
+    margin-bottom:25px;
 }
 
-td a.btn-sec {
-    color: #888;
+.campo{
+    margin-bottom:14px;
 }
 
-td a.btn-sec:hover {
-    color: #FFF;
+.campo label{
+    display:block;
+    color:#d4af37;
+    margin-bottom:6px;
+    font-size:14px;
 }
 
-td a.btn {
-    color: #FFC107;
+.campo input,
+.campo select{
+    width:100%;
+    height:38px;
+    background:#1b1b1b;
+    border:1px solid #666;
+    border-radius:5px;
+    color:white;
+    padding:8px 10px;
 }
 
-td a.btn:hover {
-    color: #FFF;
+h3{
+    text-align:center;
+    color:#d4af37;
+    margin:18px 0;
+    font-size:18px;
+    font-weight:400;
 }
 
-/* --- Responsividade (Telas menores/Celular) --- */
-@media (max-width: 992px) {
-    .container {
-        flex-direction: column;
-        padding: 10px;
+.desconto{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:8px;
+}
+
+.desconto label{
+    color:#d4af37;
+    font-size:14px;
+}
+
+.desconto input{
+    width:80px;
+    height:28px;
+    background:#1b1b1b;
+    border:1px solid #666;
+    color:white;
+    border-radius:4px;
+    text-align:center;
+}
+
+button{
+    display:block;
+    width:180px;
+    height:42px;
+    margin:30px auto 0;
+    background:#303030;
+    border:2px solid #d4af37;
+    color:#d4af37;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.resultado h3{
+    text-align:left;
+    color:#bdbdbd;
+    font-size:16px;
+}
+
+.resultado p{
+    margin:12px 0;
+    color:#a8a8a8;
+    font-size:15px;
+}
+
+.grupo{
+    margin-top:35px;
+}
+
+.grupo h4{
+    color:#d4af37;
+    margin-bottom:15px;
+    font-size:18px;
+    font-weight:400;
+}
+
+.salario-final{
+    margin-top:50px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.salario-final span{
+    color:#d4af37;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.salario-final input{
+    width:180px;
+    height:36px;
+    background:#1b1b1b;
+    border:1px solid #666;
+    color:white;
+    padding:8px;
+}
+
+@media (max-width: 900px){
+
+    .folha-container{
+        flex-direction:column;
     }
 
-    #listagem {
-        max-width: 100% !important; /* Faz a listagem rápida ocupar a largura total no topo */
-        width: 100%;
+    .linha{
+        width:100%;
+        height:1px;
     }
 
-    .linha-inputs {
-        flex-direction: column;
-        gap: 15px;
+    .resultado{
+        padding-left:0;
     }
 }
