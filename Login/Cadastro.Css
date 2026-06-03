@@ -1,42 +1,70 @@
 body {
-  font-family: "Inter", sans-serif;
-  margin: 0; 
-  width: 100%;
-  min-height: 100vh;
-  background: #121212;
-  overflow-x: hidden; 
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    width: 100%;
+    min-height: 100vh;
+    background: #121212;
+    overflow-x: hidden;
 }
 
+/* HEADER */
 
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1E1E1E;
+    padding: 15px 30px;
+    border-bottom: 1px solid #333;
+}
 
-.titulo-logo{
+.titulo-logo {
     display: flex;
     align-items: center;
-    gap: 15px;
-    gap: 25px;
+    gap: 20px;
 }
 
+.logo {
+    width: 70px;
+    height: auto;
+}
 
-
-.titulo-logo h1{
+.titulo-logo h1 {
     color: #D4AF37;
-  font-size: 1.5rem; 
-   margin: 0;
-   font-weight: bold;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
 }
 
+#menu {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: nowrap;
+}
 
+#menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+    white-space: nowrap;
+}
 
-.containerLogin{
+#menu a:hover {
+    color: #D4AF37;
+}
+
+/* LOGIN */
+
+.containerLogin {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - 90px);
 }
 
-
-.cardLogin{
+.cardLogin {
     width: 320px;
     background: #1E1E1E;
     border: 1px solid #333;
@@ -45,43 +73,39 @@ body {
     box-shadow: 0 0 15px #000;
 }
 
-
-
-.cardLogin h2{
+.cardLogin h2 {
     color: #d9d9d9;
     text-align: center;
     font-size: 27px;
     margin-bottom: 10px;
 }
 
-.subtitulo{
+.subtitulo {
     text-align: center;
     color: #8f8f8f;
-    font-size: 28px;
+    font-size: 18px;
     margin-bottom: 35px;
 }
 
-
-
-.formulario{
+.formulario {
     display: flex;
     flex-direction: column;
 }
 
-.campo{
+.campo {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
 }
 
-.campo label{
+.campo label {
     color: #D4AF37;
     font-size: 14px;
     margin-bottom: 8px;
 }
 
 .campo input,
-.campo select{
+.campo select {
     height: 48px;
     border-radius: 6px;
     border: 1px solid #777;
@@ -92,9 +116,7 @@ body {
     outline: none;
 }
 
-
-
-button{
+button {
     height: 50px;
     margin-top: 20px;
     border-radius: 8px;
@@ -106,14 +128,12 @@ button{
     transition: 0.3s;
 }
 
-button:hover{
+button:hover {
     background: #D4AF37;
     color: black;
 }
 
-
-
-.ou{
+.ou {
     display: block;
     text-align: center;
     color: #8f8f8f;
@@ -121,26 +141,9 @@ button:hover{
     margin-bottom: 15px;
 }
 
-.cadastro{
+.cadastro {
     display: block;
     text-align: center;
     color: #d9d9d9;
     font-size: 15px;
-}
-
-nav {
-    display: flex;
-    gap: 30px;
-    align-items: center;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    transition: 0.3s;
-}
-
-nav a:hover {
-    color: #D4AF37;
 }
