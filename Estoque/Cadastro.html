@@ -4,117 +4,131 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Gestão - Estoque</title>
+
     <link rel="stylesheet" href="Cadastro.css">
     <link rel="stylesheet" href="../hearder.css">
-    <link rel="stylesheet" href="../header.css">
-
 </head>
+
 <body>
 
-  
-    <!-- header -->
-    <header class="header">
-      
-     
+<header class="header">
 
-        <div class="titulo-logo">
-      <img src="logo .png" alt="Logo" class="logo">
-      <h1>Sistema de Gestão | Succeed & Failed</h1> 
-       
-      
-      <select name="menu" id="Selecionar">
-        <option>Selecionar</option>
-      <option>Estoque</option>
-        <option>Funcinário</option>
-        <option>Pedidos</option>
-        <option>Produto</option>
-        <option>Financeiro</option></select>
-       
-      <img src="../assets/logo.png" alt="Logo" class="logo">
-      <h1>Sistema de Gestão | Succeed & Failed</h1>
-  </div>
-  </header>
+    <div class="titulo-logo">
+        <img src="../assets/logo.png" alt="Logo" class="logo">
+        <h1>Sistema de Gestão | Succeed & Failed</h1>
+    </div>
 
+    <nav id="menu">
+        <a href="rh.html">RH</a>
+        <a href="../Funcionarios/Listagem.html">Funcionários</a>
+        <a href="../Produto/Cadastro.html">Produtos</a>
+        <a href="../Financeiro/Cadastro.html">Financeiro</a>
+        <a href="../Financeiro/Pagamento.html">Pagamento</a>
+        <a href="../Pedido/Cadastro.html">Pedido</a>
+    </nav>
 
+</header>
 
-    <main class="ContainerEstoque">
-        <div class="cardEstoque">
-            <h2>Movimentação de estoque</h2>
+<main class="ContainerEstoque">
 
-            <div class="formulario">
-                <div class="campo">
-                    <select>
-                        <option selected disabled>Produtos</option>
-                        <option>Produto Exemplo</option>
-                    </select>
-                </div>
+    <div class="cardEstoque">
 
-                <div class="campo">
-                    <select>
-                        <option selected disabled>Entrada/Saída</option>
-                        <option>Entrada</option>
-                        <option>Saída</option>
-                    </select>
-                </div>
+        <h2>Movimentação de estoque</h2>
 
-                <div class="campo">
-                    <input type="number" placeholder="Quantidade">
-                </div>
+        <div class="formulario">
 
-                <div class="campo">
-                    <input type="date">
-                </div>
+            <div class="campo">
+
+                <select id="produto">
+
+                    <option selected disabled value="">
+                        Produtos
+                    </option>
+
+                </select>
 
             </div>
 
+            <div class="campo">
 
+                <select id="tipoMovimentacao">
 
-  <div class="acoes">
-                   <button><p class="titulobutton">Lançar Estoque</p></button>
-                </div>
+                    <option selected disabled value="">
+                        Entrada/Saída
+                    </option>
 
+                    <option value="Entrada">
+                        Entrada
+                    </option>
 
+                    <option value="Saida">
+                        Saída
+                    </option>
 
+                </select>
 
+            </div>
 
-            <table class="tabelaEstoque">
-                <thead>
-                    <tr>
-                      
-                        
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Nome do produto</td>
-                        <td>Entrada</td>
-                        <td class="verde">Qtd Estoque</td>
-                        <td>R$ 0,00</td>
-                        <td>dd/mm/aa</td>
-                        <td style="text-align: right;"><a href="#">Editar</a></td>
-                    </tr>
-                    <tr>
-                        <td>Nome do produto</td>
-                        <td>Saída</td>
-                        <td class="vermelho">Baixa quantidade</td>
-                        <td>R$ 0,00</td>
-                        <td>dd/mm/aa</td>
-                        <td style="text-align: right;"><a href="#">Editar</a></td>
-                    </tr>
-                    <tr>
-                        <td>Nome do produto</td>
-                        <td>Entrada</td>
-                        <td class="amarelo">Média Quantidade</td>
-                        <td>R$ 0,00</td>
-                        <td>dd/mm/aa</td>
-                        <td style="text-align: right;"><a href="#">Editar</a></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="campo">
 
-            
+                <input
+                    type="number"
+                    id="quantidade"
+                    placeholder="Quantidade"
+                >
+
+            </div>
+
+            <div class="campo">
+
+                <input
+                    type="date"
+                    id="dataMovimentacao"
+                >
+
+            </div>
+
         </div>
-    </main>
-    
+
+        <div class="acoes">
+
+            <button id="btnEstoque">
+
+                <p class="titulobutton">
+                    Lançar Estoque
+                </p>
+
+            </button>
+
+        </div>
+
+        <table class="tabelaEstoque">
+
+            <thead>
+
+                <tr>
+
+                    <th>Produto</th>
+                    <th>Tipo</th>
+                    <th>Quantidade</th>
+                    <th>Data</th>
+                    <th>Ações</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="tbodyEstoque">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</main>
+
+<script src="Estoque.js"></script>
+
 </body>
 </html>
