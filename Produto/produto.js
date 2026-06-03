@@ -1,16 +1,9 @@
-// ======================================
-// CONFIGURAÇÕES GLOBAIS
-// ======================================
 
-const api = "http://localhost:5146/api/Produtos";
+const api = "http://localhost:7093/api/Produtos";
 
 const tabela = document.querySelector("tbody");
 
 
-// ======================================
-// GET ALL
-// LISTAR TODOS OS PRODUTOS
-// ======================================
 
 async function getProdutos() {
 
@@ -27,7 +20,7 @@ async function getProdutos() {
             let status = "";
             let classe = "";
 
-            // STATUS ESTOQUE
+  
             if (produto.quantidadeEstoque <= 5) {
 
                 status = "Baixa Quantidade";
@@ -50,7 +43,7 @@ async function getProdutos() {
             }
 
 
-            // CRIAR LINHA
+    
             const linha = document.createElement("tr");
 
             linha.innerHTML = `
@@ -109,11 +102,6 @@ async function getProdutos() {
 }
 
 
-// ======================================
-// GET BY ID
-// LISTAR PRODUTO POR ID
-// ======================================
-
 async function getProdutoById(id) {
 
     try {
@@ -138,11 +126,6 @@ Preço: R$ ${produto.preco}`
     }
 }
 
-
-// ======================================
-// POST
-// CADASTRAR PRODUTO
-// ======================================
 
 async function cadastrarProduto() {
 
@@ -184,12 +167,6 @@ async function cadastrarProduto() {
     }
 }
 
-
-// ======================================
-// PUT
-// EDITAR PRODUTO
-// ======================================
-
 async function editarProduto(id) {
 
     const produtoAtualizado = {
@@ -230,12 +207,6 @@ async function editarProduto(id) {
     }
 }
 
-
-// ======================================
-// DELETE
-// EXCLUIR PRODUTO
-// ======================================
-
 async function deletarProduto(id) {
 
     const confirmar = confirm("Deseja excluir esse produto?");
@@ -263,11 +234,6 @@ async function deletarProduto(id) {
     }
 }
 
-
-// ======================================
-// BOTÃO ESTOQUE
-// ======================================
-
 const botao = document.querySelector("#btnEstoque");
 
 botao.addEventListener("click", () => {
@@ -277,8 +243,5 @@ botao.addEventListener("click", () => {
 });
 
 
-// ======================================
-// INICIAR SISTEMA
-// ======================================
 
 getProdutos();
