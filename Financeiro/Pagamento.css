@@ -11,14 +11,17 @@ body{
 }
 
 .folha-container{
-    width:85%;
-    max-width:1150px;
-    margin:30px auto;
-    border:1px solid #444;
-    padding:35px;
-    display:flex;
-    gap:40px;
-    background:#070707;
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+    border: 1px solid #444;
+    border-radius: 10px;
+    background: #070707;
+    display: flex;
+    justify-content: center; /* centraliza horizontal */
+    align-items: center;     /* centraliza vertical */
+    gap: 50px;
+    padding: 30px 50px;
 }
 
 .formulario{
