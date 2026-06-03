@@ -22,7 +22,9 @@ async function getPagamentos() {
             linha.innerHTML = `
 
                 <td>
+                
                     ${pagamento.descricao}
+
                 </td>
 
                 <td>
@@ -31,6 +33,7 @@ async function getPagamentos() {
 
                 <td>
                     ${new Date(pagamento.dataVencimento).toLocaleDateString('pt-BR')}
+                    
                 </td>
 
                 <td>
