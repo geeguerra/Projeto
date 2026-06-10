@@ -39,15 +39,13 @@
         </div>
 
     <nav id="menu">
-    <a href="rh.html">RH</a>
+ 
     <a href="../Funcionarios/Listagem.html">Funcionários</a>
     <a href="">Fornecedores</a>
     <a href="../Produto/Cadastro.html">Produtos</a>
     <a href="../Estoque/Cadastro.html">Estoque</a>    
     <a href="../Financeiro/Cadastro.html">Financeiro</a>
     <a href="../Financeiro/Pagamento.html">Pagamento</a>
-    <a href="">Clientes</a>
-       <a href="../Login/Cadastro.html">Login</a>
         <a href="../Pedido/Cadastro.html">Pedido</a>
         <a href="../Pedido/Listagem.html">Listagem</a>
 </nav>
@@ -58,90 +56,35 @@
  
      <main class="containerLogin">
         
->>>>>>> 62dbf3691317b4ae9f96b7d6658860ff7cfba3b3
 
-<div class="container">
+        <div class="cardLogin">
 
+            <h2>Bem-vindo ao sistema <br> Succeed & Failed</h2>
 
-    <div id="listagem" class="tela">
-        <div class="card">
-            <h2>Folha de Pagamento</h2>
-            
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Descrição</th>
-                        <th>Valor</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
+            <p class="subtitulo">Acesse ou crie sua conta</p>
 
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Salário</td>
-                        <td>R$ 5.000</td>
-                        <td>
-                            <a href="#detalhes" class="btn-sec">Detalhes</a>
-                            <a href="#cadastro" class="btn">Editar</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
+           <form class="formulario">
+
+    <div class="campo">
+        <label>Email</label>
+        <input type="email" id="email">
     </div>
 
-</header>
+    <div class="campo">
+        <label>Senha</label>
+        <input type="password" id="senha" placeholder="*****">
+    </div>
 
-<main class="container">
+    <button type="submit">Entrar</button>
 
-<section class="card">
-
-<h2>Cadastro de Pagamento</h2>
-
-<form>
-
-    <div class="linha-inputs">
-
-        <div class="campo">
-            <label for="funcionario">Funcionário</label>
-
-            <select id="funcionario" name="funcionario">
-                <option value="">Selecionar Funcionário</option>
-                <option value="1">Funcionário 1</option>
-                <option value="2">Funcionário 2</option>
-                <option value="3">Funcionário 3</option>
-            </select>
-        </div>
-
-        <div class="campo">
-            <label for="data">Data de Pagamento</label>
-            <input type="date" id="data">
-        </div>
+</form>
 
     </div>
 
     <div class="linha-inputs">
 
-        <div class="campo">
-            <label for="salario">Salário</label>
-            <input type="number" id="salario" placeholder="Digite o salário">
-        </div>
 
-        <div class="campo">
-            <label for="bonus">Bônus</label>
-            <input type="number" id="bonus" placeholder="Digite o bônus">
-        </div>
 
-    </div>
-
-    <div class="linha-inputs">
-
-        <div class="campo">
-            <label for="desconto">Desconto</label>
-            <input type="number" id="desconto" placeholder="Digite o desconto">
         </div>
 
     </div>
@@ -184,6 +127,11 @@
 </section>
 
 </main>
+
+
+
+<script src="Login.js"></script>
+
 
 </body>
 </html>
