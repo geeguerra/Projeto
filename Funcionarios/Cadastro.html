@@ -47,86 +47,71 @@
 
                 <div class="input-group">
                     <label>Nome completo/Empresa *</label>
-
-                    <input type="text" placeholder="Digite o nome completo ou empresa">
+                    <input type="text" placeholder="Digite o nome completo ou empresa" required>
                 </div>
 
                 <div class="input-group">
                     <label>Data de nascimento *</label>
-
-                    <input type="date" placeholder="">
+                    <input type="date" id="dataNascimento" required>
                 </div>
 
                 <div class="input-group">
                     <label>Bairro *</label>
-
-                    <input type="text" placeholder="Digite o bairro">
+                    <input type="text" placeholder="Digite o bairro" required>
                 </div>
 
                 <div class="input-group">
                     <label>E-mail *</label>
-
-                    <input type="email" placeholder="Exemplo@gmail.com">
+                    <input type="email" placeholder="Exemplo@gmail.com" required>
                 </div>
 
                 <div class="input-group">
                     <label>Nº da casa *</label>
-
-                    <input type="text" placeholder="Digite o numero">
+                    <input type="text" placeholder="Digite o número" required>
                 </div>
 
                 <div class="input-group">
                     <label>Telefone *</label>
-
-                    <input type="text" placeholder="(00)00000-0000">
+                    <input type="text" placeholder="(00)00000-0000" required>
                 </div>
 
                 <div class="input-group">
                     <label>CPF *</label>
-
-                    <input type="text" placeholder="00.000.000-00">
+                    <input type="text" placeholder="000.000.000-00" required>
                 </div>
 
                 <div class="input-group">
                     <label>Complemento *</label>
-
-                    <input type="text" placeholder="Exemplo completo: Bloco B, Apto 301">
+                    <input type="text" placeholder="Exemplo: Bloco B, Apto 301" required>
                 </div>
 
                 <div class="input-group">
                     <label>CNPJ *</label>
-
-                    <input type="text" placeholder="00.000.000/0000-00">
+                    <input type="text" placeholder="00.000.000/0000-00" required>
                 </div>
 
                 <div class="input-group">
-                    <label>Cep *</label>
-
-                    <input type="text" placeholder="00000-000">
+                    <label>CEP *</label>
+                    <input type="text" placeholder="00000-000" required>
                 </div>
 
                 <div class="input-row-special">
 
                     <div class="input-group">
-
                         <label>Cidade *</label>
-
-                        <input type="text" placeholder="Digite a cidade">
+                        <input type="text" placeholder="Digite a cidade" required>
                     </div>
 
                     <div class="input-group">
-
                         <label>Estado *</label>
 
-                        <select>
-
-                            <option>Selecione ▾</option>
+                        <select required>
+                            <option value="">Selecione</option>
                             <option>São Paulo</option>
                             <option>Minas Gerais</option>
                             <option>Rio de Janeiro</option>
                             <option>Santa Catarina</option>
                             <option>Bahia</option>
-
                         </select>
 
                     </div>
@@ -134,11 +119,8 @@
                 </div>
 
                 <div class="input-group full-width">
-
                     <label>Endereço *</label>
-
-                    <input type="text" placeholder="Digite o seu Endereço....">
-
+                    <input type="text" placeholder="Digite o seu endereço..." required>
                 </div>
 
             </div>
@@ -151,7 +133,8 @@
 
     </main>
 
-   <script src="Cadastro.js"></script>
+    <script src="Cadastro.js"></script>
 
 </body>
+
 </html>
