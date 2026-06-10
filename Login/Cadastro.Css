@@ -45,13 +45,11 @@ header {
 
 #menu {
     display: flex;
-<<<<<<< HEAD
     max-width: 1400px;
     margin: 0 auto;
     gap: 30px;
     align-items: flex-start;
     padding: 20px 0;
-=======
     align-items: center;
     gap: 25px;
     flex-wrap: nowrap;
@@ -135,7 +133,6 @@ button {
     margin-top: 20px;
     border-radius: 8px;
     font-size: 15px;
-<<<<<<< HEAD
     font-weight: bold;
     cursor: pointer;
     transition: all 0.2s;
