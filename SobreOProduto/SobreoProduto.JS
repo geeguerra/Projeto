@@ -8,8 +8,6 @@ async function carregarProdutos() {
         const response = await fetch(apiUrl);
         const produtos = await response.json();
 
-        console.log(produtos);
-
         container.innerHTML = "";
 
         produtos.forEach(produto => {
@@ -23,15 +21,13 @@ async function carregarProdutos() {
             
                 <section class="card-produto">
 
-
-                  <h2 class="card-titulo">${produto.nomeProduto}</h2>
+                    <h2 class="card-titulo">${produto.nomeProduto}</h2>
 
                     <div class="info-linha">
                         <span class="info-titulo">Código:</span>
                         <span class="info-valor">${produto.codigo}</span>
                     </div>
 
-                  
                     <div class="info-linha">
                         <span class="info-titulo">Preço unitário:</span>
                         <span class="info-valor">
@@ -60,23 +56,52 @@ async function carregarProdutos() {
                     </div>
 
                     <div class="actions-area">
-                        <button class="BtnDetalhesProduto">
+                        <button 
+                            class="BtnDetalhesProduto"
+                            onclick="excluirProduto(${produto.id})">
                             Excluir
                         </button>
                     </div>
 
                 </section>
-
             `;
 
             container.innerHTML += card;
-
         });
 
     } catch (error) {
-
         console.error("Erro:", error);
         alert("Erro ao carregar produtos");
+    }
+}
+
+async function excluirProduto(id) {
+
+    const confirmar = confirm("Deseja realmente excluir este produto?");
+
+    if (!confirmar) return;
+
+    try {
+
+        const response = await fetch(
+            `https://localhost:7093/api/Produtos/${id}`,
+            {
+                method: "DELETE"
+            }
+        );
+
+        if (!response.ok) {
+            throw new Error("Erro ao excluir produto");
+        }
+
+        alert("Produto excluído com sucesso!");
+
+        carregarProdutos();
+
+    } catch (error) {
+
+        console.error(error);
+        alert("Erro ao excluir produto");
 
     }
 }
