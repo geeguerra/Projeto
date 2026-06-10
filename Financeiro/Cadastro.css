@@ -123,20 +123,3 @@ body {
 }
 
 
-#menu a.active {
-    color: #D4AF37;           
-    font-weight: bold;
-    border-bottom: 2px solid #D4AF37; 
-}
-
-
-#menu a[href*="Login"] {
-    color: #ff4d4d; 
-    margin-left: auto; 
-}
-
-#menu a[href*="Login"]:hover {
-    color: #ff3333;
-    text-shadow: 0 0 8px rgba(255, 77, 77, 0.5);
-}
-
