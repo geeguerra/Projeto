@@ -1,13 +1,43 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>Sistema de Gestão</title>
+
     <link rel="stylesheet" href="Cadastro.css">
+<<<<<<< HEAD
+    <link rel="stylesheet" href="../header.css">
+
+=======
     <link rel="stylesheet" href="../hearder.css">
+>>>>>>> 62dbf3691317b4ae9f96b7d6658860ff7cfba3b3
 </head>
+
 <body>
 
+<<<<<<< HEAD
+<header class="header">
+
+    <div class="titulo-logo">
+
+        <img src="logo .png" alt="Logo" class="logo">
+
+        <h1>Sistema de Gestão | Succeed & Failed</h1>
+
+        <select name="menu" id="Selecionar">
+
+            <option>Selecionar</option>
+            <option>Estoque</option>
+            <option>Funcionário</option>
+            <option>Pedidos</option>
+            <option>Produto</option>
+            <option>Financeiro</option>
+
+        </select>
+
+    </div>
+
+=======
    <!-- header -->
     <header class="header">
 
@@ -28,66 +58,118 @@
     <a href="../Login/Cadastro.html">Sair</a>
 </nav>
 </div>
+>>>>>>> 62dbf3691317b4ae9f96b7d6658860ff7cfba3b3
 </header>
 
 
+<main>
 
-    <main>
     <div class="card-container">
-      <header class="card-header">
-          <h2>Cadastro de Pedido</h2>
-          <p>Registre uma nova venda/pedido</p>
-      </header>
 
-      <form class="order-form">
-          <div class="form-row">
-              <div class="form-group">
-                  <label>Data</label>
-                  <input type="date" placeholder="dd/mm/aa">
-              </div>
-              <div class="form-group">
-                  <label>Status</label>
-                  <select>
-                      <option>Em andamento</option>
-                  </select>
-              </div>
-              <div class="form-group">
-                  <label>Valor</label>
-                  <input type="number" placeholder="R$:0,00">
-              </div>
-          </div>
+        <header class="card-header">
 
-          <div class="form-row align-end">
-              <div class="form-group flex-2">
-                  <label>Produto</label>
-                  <div class="input-with-btn">
-                      <select>
-                          <option>Selecionar</option>
-                      </select>
-                      <button type="button" class="btn-add">+</button>
-                  </div>
-              </div>
-              <div class="form-group flex-1">
-                  <label>Quantidade</label>
-                  <input type="number" placeholder="Selecionar">
-              </div>
-          </div>
+            <h2>Cadastro de Pedido</h2>
 
-          <div class="order-summary">
-              <div class="summary-item">
-                  <span>Produto 1</span>
-                  <span>R$ 0,00</span>
+            <p>Registre uma nova venda/pedido</p>
+
+        </header>
+
+
+        <form class="order-form">
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label>Data</label>
+
+                    <input type="date">
+
+                </div>
+
+
+                <div class="form-group">
+
+              <label>Status</label>
+
+              <select disabled>
+
+                <option>Em andamento</option>
+
+               </select>
+
               </div>
-              
-              <div class="summary-footer">
-                  <p class="total-text">Valor total: <strong>R$ 0,00</strong></p>
-                  <button type="submit" class="btn-save">Salvar Pedido</button>
-              </div>
-          </div>
-      </form>
-    </main>
-  </div>
-  
- <script src="./Pedido.html"></script>
+
+            </div>
+
+
+            <div class="form-row align-end">
+
+                <div class="form-group flex-2">
+
+                    <label>Produto</label>
+
+                    <div class="input-with-btn">
+
+                        <select>
+
+                            <option>Selecionar</option>
+                            <option>Camiseta</option>
+                            <option>Calça</option>
+                            <option>Tênis</option>
+                            <option>Boné</option>
+
+                        </select>
+
+                        <button type="button" class="btn-add">
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group flex-1">
+
+                    <label>Quantidade</label>
+
+                    <input type="number" class="quantidade" placeholder="Selecionar">
+
+                </div>
+
+            </div>
+
+
+            <div class="order-summary">
+
+                <div class="summary-footer">
+
+                    <p class="total-text">
+
+                        Valor total:
+                        <strong>R$ 0,00</strong>
+
+                    </p>
+
+                    <button type="submit" class="btn-save">
+
+                        Salvar Pedido
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</main>
+
+
+<script src="cadastro.js"></script>
+
 </body>
 </html>

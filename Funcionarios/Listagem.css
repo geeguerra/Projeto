@@ -118,6 +118,8 @@ body {
 a{
     color: #E0E0E0;
     text-decoration: none;
+}
+
 nav {
     display: flex;
     gap: 30px;
@@ -133,4 +135,37 @@ nav a {
 
 nav a:hover {
     color: #D4AF37;
+}
+
+.btn-float{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+
+    width: 65px;
+    height: 65px;
+
+    border-radius: 50%;
+    border: none;
+
+    background: #D4AF37;
+    color: #121212;
+
+    font-size: 36px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    transition: 0.3s;
+}
+
+.btn-float:hover{
+    transform: scale(1.1);
+}
+.btn-float{
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
