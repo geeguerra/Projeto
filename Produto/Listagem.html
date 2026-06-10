@@ -2,8 +2,8 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Sistema de Gestão - Produto</title>
-    <link rel="stylesheet" href="Cadastro.css">
+    <title>Sistema de Gestão - Produto</title> 
+    <link rel="stylesheet" href="Listagem.css">-
     <link rel="stylesheet" href="../hearder.css">
   
 
@@ -44,54 +44,31 @@
 
   <div id="message-box"></div>
 
-  <div class="card">
-    <h2>Lista de produto</h2>
 
-    
-    
-    <table>
-      <tbody>
+    <main class="container">
 
-        <tr>
-          <td><div class="imgbloco"></div></td>
-          <td>Nome do produto</td>
-          <td>Código</td>
-          <td class="verde">Qtd Estoque</td>
-          <td>R$:0,00</td>
-        </tr>
-
-        <tr>
-          <td><div class="imgbloco"></div></td>
-          <td>Nome do produto</td>
-          <td>Código</td>
-          <td class="vermelho">Baixa quantidade</td>
-          <td>R$:0,00</td>
-        </tr>
-
-        <tr>
-          <td><div class="imgbloco"></div></td>
-          <td>Nome do produto</td>
-          <td>Código</td>
-
-          <td class="amarelo">Média Quantidade</td>
-          <td>R$:0,00</td>
-        </tr>
-
-      </tbody>
-    </table>
-
-    <!-- botão -->
-    <div class="acoes">
-      <p>Atualizar Estoque</p>
-      <button id="btnEstoque"> <p class="titulobutton">Estoque</p></button>
-    </div>
-
-  </div>
-
-</main>
-
-  <script src="produto.js"></script>
+      <div id="message-box"></div>
   
-
-</body>
-</html>
+      <div class="card">
+  
+          <h2>Lista de produto</h2>
+  
+          <table>
+              <tbody id="listaProdutos">
+              </tbody>
+          </table>
+  
+          <div class="acoes">
+              <button id="btnEstoque">
+                  <p class="titulobutton">Atualizar</p>
+              </button>
+          </div>
+  
+      </div>
+  
+  </main>
+  
+  <script src="Listagem.js"></script>
+  
+  </body>
+  </html>
