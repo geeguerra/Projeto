@@ -161,7 +161,7 @@ async function deletarPagamento(id) {
 
     try {
 
-        await fetch(`${api}/${id}`, {
+        await fetch(${api}/${id}, {
 
             method: "DELETE"
 
