@@ -13,6 +13,7 @@ async function getPagamentos() {
 
         const pagamentos = await resposta.json();
 
+        
         tabela.innerHTML = "";
 
         pagamentos.forEach(pagamento => {
