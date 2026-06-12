@@ -1,3 +1,38 @@
+<<<<<<< HEAD
+body {
+  font-family: "Inter";
+  margin: 0; 
+  width: 100%;
+  min-height: 100vh;
+  background: #121212;
+  overflow-x: hidden; 
+}
+
+header {    
+  display: flex;
+  width: 100%; 
+  height: 80px; 
+  padding: 0 20px; 
+  align-items: center;
+  border-bottom: 1px solid #333;
+  background: #1E1E1E;
+  box-sizing: border-box; 
+
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+}
+
+body{
+    background-color: #000000;
+    color: #E0E0E0;
+}
+
+.header{
+=======
 /* 1. Boa prática universal: garante que padding e border não alterem o tamanho final do elemento */
 *, *::before, *::after {
     box-sizing: border-box;
@@ -6,6 +41,7 @@
   body {
     font-family: "Inter", sans-serif;
     margin: 0; 
+>>>>>>> 62dbf3691317b4ae9f96b7d6658860ff7cfba3b3
     width: 100%;
     min-height: 100vh;
     background: #121212;
@@ -71,7 +107,7 @@
     /* Mudado para 100% para que ele ocupe todo o espaço interno do .card */
     width: 100%;
     height: 58px;
-    border: 2px solid #777777;
+    border: 2px #777777;
     border-radius: 8px;
     display: grid;
     grid-template-columns: 100px 1fr 180px 150px;

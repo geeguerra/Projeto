@@ -118,6 +118,8 @@ body {
 a{
     color: #E0E0E0;
     text-decoration: none;
+}
+
 nav {
     display: flex;
     gap: 30px;
@@ -132,5 +134,9 @@ nav a {
 }
 
 nav a:hover {
+    color: #D4AF37;
+}
+
+a{
     color: #D4AF37;
 }
