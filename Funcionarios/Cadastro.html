@@ -46,11 +46,16 @@
                     <input type="text" placeholder="Digite o nome completo ou empresa" required>
                 </div>
 
-                <div class="input-group">
-                    <label>Data de nascimento *</label>
-                    <input type="date" id="dataNascimento" required>
+                 <div class="input-group">
+                   <label>Data de nascimento *</label>
+                   <input
+                     type="date"
+                     id="dataNascimento"
+                     min="1900-01-01"
+                     max="2099-12-31"
+                       required>
                 </div>
-
+ 
                 <div class="input-group">
                     <label>Bairro *</label>
                     <input type="text" placeholder="Digite o bairro" required>
@@ -63,17 +68,17 @@
 
                 <div class="input-group">
                     <label>Nº da casa *</label>
-                    <input type="text" placeholder="Digite o número" required>
+                    <input type="number" placeholder="Digite o número" required>
                 </div>
 
                 <div class="input-group">
                     <label>Telefone *</label>
-                    <input type="text" placeholder="(00)00000-0000" required>
+                    <input type="text" placeholder="(00)00000-0000" maxlength="11" required>
                 </div>
 
                 <div class="input-group">
                     <label>CPF *</label>
-                    <input type="text" placeholder="000.000.000-00" required>
+                    <input type="text" placeholder="000.000.000-00" maxlength="11" required>
                 </div>
 
                 <div class="input-group">
@@ -81,14 +86,10 @@
                     <input type="text" placeholder="Exemplo: Bloco B, Apto 301" required>
                 </div>
 
-                <div class="input-group">
-                    <label>CNPJ *</label>
-                    <input type="text" placeholder="00.000.000/0000-00" required>
-                </div>
 
                 <div class="input-group">
                     <label>CEP *</label>
-                    <input type="text" placeholder="00000-000" required>
+                    <input type="text" placeholder="00000-000" maxlength="8" required>
                 </div>
 
                 <div class="input-row-special">
@@ -102,12 +103,16 @@
                         <label>Estado *</label>
 
                         <select required>
-                            <option value="">Selecione</option>
-                            <option>São Paulo</option>
-                            <option>Minas Gerais</option>
-                            <option>Rio de Janeiro</option>
-                            <option>Santa Catarina</option>
-                            <option>Bahia</option>
+                         <option value="">Selecione</option>
+                         <option>São Paulo</option>
+                         <option>Rio de Janeiro</option>
+                         <option>Minas Gerais</option>
+                         <option>Paraná</option>
+                         <option>Santa Catarina</option>
+                         <option>Rio Grande do Sul</option>
+                         <option>Bahia</option>
+                         <option>Goiás</option>
+                         <option>Distrito Federal</option>
                         </select>
 
                     </div>

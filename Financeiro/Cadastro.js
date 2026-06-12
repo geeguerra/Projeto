@@ -1,12 +1,5 @@
-// CONFIGURAÇÕES GLOBAIS
-
 const api = 'http://localhost:7093/api/Financeiro';
-
 const tabela = document.querySelector("tbody");
-
-
-// GET ALL
-// LISTAR TODOS OS REGISTROS
 
 
 async function getFinanceiro() {
@@ -75,9 +68,6 @@ async function getFinanceiro() {
 }
 
 
-// GET BY ID
-// LISTAR REGISTRO POR ID
-
 
 async function getFinanceiroById(id) {
 
@@ -103,22 +93,18 @@ async function getFinanceiroById(id) {
     }
 }
 
-// POST
-// CADASTRAR REGISTRO
-
 async function cadastrarFinanceiro() {
 
     const financeiro = {
 
-        descricao: "Conta de Energia",
+    descricao: document.getElementById("descricao").value,
 
-        valor: 250.90,
+    valor: Number(document.getElementById("valor").value),
 
-        dataPagamento: "2026-05-22",
+    dataPagamento: document.getElementById("dataPagamento").value,
 
-        dataVencimento: "2026-06-10"
-    };
-
+    dataVencimento: document.getElementById("dataVencimento").value
+};
     try {
 
         await fetch(api, {
@@ -145,9 +131,6 @@ async function cadastrarFinanceiro() {
 
     }
 }
-
-// PUT
-// EDITAR REGISTRO
 
 
 async function editarFinanceiro(id) {
@@ -190,10 +173,6 @@ async function editarFinanceiro(id) {
     }
 }
 
-
-// DELETE
-// EXCLUIR REGISTRO
-
 async function deletarFinanceiro(id) {
 
     const confirmar = confirm("Deseja excluir esse registro?");
@@ -221,18 +200,13 @@ async function deletarFinanceiro(id) {
     }
 }
 
-// BOTÃO FINANCEIRO
 
-
-const botao = document.querySelector("#botãoPagamento");
+const botao = document.querySelector("#botaoPagamento");
 
 botao.addEventListener("click", () => {
 
     cadastrarFinanceiro();
 
 });
-
-// INICIAR SISTEMA
-
 
 getFinanceiro();

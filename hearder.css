@@ -81,3 +81,8 @@ img{
 #menu a:hover{
     color: #D4AF37;
 }
+
+a{
+    color: white;
+    text-decoration: none;
+}
