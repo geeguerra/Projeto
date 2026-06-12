@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 document.addEventListener('DOMContentLoaded', () => {
     // 1. URLs das suas APIs do C#
     const URL_API_PRODUTOS = 'https://localhost:7093/api/Produtos';
@@ -160,4 +161,73 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Executa a carga dos dados assim que o arquivo é lido pelo navegador
     carregarProdutosDoSite();
+=======
+const form = document.querySelector(".order-form");
+
+const btnAdd = document.querySelector(".btn-add");
+
+const produtoSelect = document.querySelector(".input-with-btn select");
+
+const quantidadeInput = document.querySelector(".quantidade");
+
+const resumoPedido = document.querySelector(".order-summary");
+
+const totalTexto = document.querySelector(".total-text strong");
+
+let total = 0;
+
+
+btnAdd.addEventListener("click", () => {
+
+    const produto = produtoSelect.value;
+
+    const quantidade = quantidadeInput.value;
+
+    if (produto === "Selecionar" || quantidade === "") {
+
+        alert("Selecione um produto e a quantidade!");
+        return;
+    }
+
+    const valorProduto = 10;
+
+    const subtotal = valorProduto * quantidade;
+
+    total += subtotal;
+
+    const novoItem = document.createElement("div");
+
+    novoItem.classList.add("summary-item");
+
+    novoItem.innerHTML = `
+    
+        <span>${produto} x${quantidade}</span>
+        <span>R$ ${subtotal.toFixed(2)}</span>
+
+    `;
+
+    resumoPedido.insertBefore(
+        novoItem,
+        document.querySelector(".summary-footer")
+    );
+
+    totalTexto.innerText = `R$ ${total.toFixed(2)}`;
+
+    quantidadeInput.value = "";
+});
+
+
+form.addEventListener("submit", (event) => {
+
+    event.preventDefault();
+
+    alert("Pedido salvo com sucesso!");
+
+    form.reset();
+
+    total = 0;
+
+    totalTexto.innerText = "R$ 0,00";
+
+>>>>>>> f259d3d3464e484f9bc48909a74ea2f0615dcd23
 });
