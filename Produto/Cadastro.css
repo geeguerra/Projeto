@@ -1,0 +1,157 @@
+/* CONTAINER PRINCIPAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px);
+    padding: 30px;
+    background-color: #0d0d0d;
+}
+
+/* CARD */
+.form-card {
+    width: 100%;
+    max-width: 900px;
+    min-height: 70vh;
+    background: #1b1b1b;
+    border: 1px solid #2f2f2f;
+    border-radius: 18px;
+    padding: 40px 50px;
+    box-shadow:
+        0 0 15px rgba(255,255,255,0.03),
+        inset 0 0 10px rgba(255,255,255,0.02);
+    margin: 30px auto;
+}
+
+/* TÍTULO */
+.form-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.form-title h2 {
+    font-size: 22px;
+    color: #ffffff;
+    margin-bottom: 12px;
+    font-family: Arial, sans-serif;
+}
+
+.form-title p {
+    color: #d4af37;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+/* GRID DOS INPUTS */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+    margin-bottom: 40px;
+}
+
+.full-width {
+    grid-column: span 2;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    color: #d4af37;
+    font-size: 14px;
+    margin-bottom: 12px;
+    font-family: Arial, sans-serif;
+}
+
+.input-group input {
+    background-color: #2a2a2a;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    padding: 14px;
+    color: #ffffff;
+    font-size: 14px;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.input-group input:focus {
+    border-color: #d4af37;
+}
+
+.input-group input::placeholder {
+    color: #888888;
+}
+
+/* LISTA DE PRODUTOS */
+.product-list-container {
+    background-color: #252525;
+    border: 1px solid #333333;
+    border-radius: 6px;
+    padding: 25px;
+    margin-bottom: 35px;
+    font-family: Arial, sans-serif;
+}
+
+.product-item {
+    display: flex;
+    justify-content: space-between;
+    color: #ffffff;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.total-container {
+    display: flex;
+    justify-content: flex-end;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    border-top: 1px solid #3d3d3d;
+    padding-top: 15px;
+}
+
+/* BOTÃO */
+.form-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 50px;
+}
+
+.btn-submit {
+    background-color: transparent;
+    color: #d4af37;
+    border: 1px solid #d4af37;
+    padding: 12px 35px;
+    border-radius: 25px;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #d4af37;
+    color: #000000;
+}
+
+/* RESPONSIVO */
+@media (max-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .full-width {
+        grid-column: span 1;
+    }
+}
