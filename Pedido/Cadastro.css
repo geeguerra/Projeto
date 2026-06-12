@@ -170,6 +170,7 @@ input, select {
     cursor: pointer;
     font-weight: 500;
     transition: 0.3s;
+    font-size: 15px;
 }
 
 .btn-save:hover {
@@ -182,3 +183,4 @@ main {
   padding: 5%;
   justify-content: center;
 }
+
