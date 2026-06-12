@@ -1,6 +1,6 @@
 // CONFIGURAÇÕES GLOBAIS
 
-const api = 'http://localhost:7093/api/Financeiro';
+const api = 'https://localhost:7093/api/FolhaPagamento';
 
 const tabela = document.querySelector("tbody");
 
