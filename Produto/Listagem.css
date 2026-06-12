@@ -45,6 +45,9 @@ button:hover {
   color: #1E1E1E;
 }
 
+a:hover{
+  color: #ccc;
+}
 .titulobutton {
   font-size: 16px;
 }
