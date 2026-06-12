@@ -1,109 +1,114 @@
-/* 1. Boa prática universal: garante que padding e border não alterem o tamanho final do elemento */
+/* 1. Boa prática universal */
 *, *::before, *::after {
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: "Inter", sans-serif;
-    margin: 0; 
-    width: 100%;
-    min-height: 100vh;
-    background: #121212;
-    overflow-x: hidden; 
-  }
-  
-  .container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    /* Diminuí um pouco o padding lateral para telas menores, mas sinta-se livre para ajustar */
-    padding: 50px 20px; 
-  }
-  
-  .card {
-    /* Usar max-width impede que ele estoure e o deixa responsivo */
-    width: 100%;
-    max-width: 1200px; 
-    min-height: 650px;
-    background-color: #1E1E1E;
-    border-radius: 8px;
-    padding: 50px;
-  }
-  
-  .card h2 {
-    text-align: center;
-    color: #D4AF37;
-    font-size: 38px;
-    font-weight: 500;
-    margin-bottom: 60px;
-  }
-  
-  .search-box {
-    /* Se a tela for menor que 420px, ele não quebra a tela */
-    max-width: 420px;
-    width: 100%;
-    height: 55px;
-    border: 2px solid #777777;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    padding: 0 15px;
-    margin-bottom: 90px;
-  }
-  
-  .search-box input {
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
-    color: #E0E0E0;
-    font-size: 16px;
-  }
-  
-  .pedido-lista {
-    display: flex;
-    flex-direction: column; 
-    gap: 28px;
-  }
-  
-  .pedido-item {
-    /* Mudado para 100% para que ele ocupe todo o espaço interno do .card */
-    width: 100%;
-    height: 58px;
-    border: 2px solid #777777;
-    border-radius: 8px;
-    display: grid;
-    grid-template-columns: 100px 1fr 180px 150px;
-    align-items: center;
-    padding: 0 20px;
-    color: #BDBDBD;
-    transition: transform 0.2s ease, border-color 0.2s ease; /* Adicionado para o hover ficar suave */
-  }
-  
-  .status.andamento {
-    color: #44DF2F;
-    font-weight: bold;
-  }
-  
-  .status.cancelado {
-    color: #FF5C5C;
-    font-weight: bold;
-  }
-  
-  .total {
-    color: #8F8F8F;
-  }
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0; 
+  width: 100%;
+  min-height: 100vh;
+  background: #121212;
+  overflow-x: hidden; 
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* Reduzido o padding do container para aproximar o card do topo */
+  padding: 30px 20px; 
+}
+
+.card {
+  width: 100%;
+  max-width: 1100px; /* Reduzido levemente a largura máxima */
+  min-height: auto;   /* Removido o min-height fixo exagerado para o card se moldar ao conteúdo */
+  background-color: #1E1E1E;
+  border-radius: 8px;
+  padding: 35px;      /* Reduzido de 50px para 35px */
+}
+
+.card h2 {
+  text-align: center;
+  color: #D4AF37;
+  font-size: 28px;    /* Reduzido de 38px para 28px (tamanho bem mais comercial) */
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 30px; /* Reduzido de 60px para 30px */
+}
+
+.search-box {
+  max-width: 350px;   /* Reduzido de 420px para 350px */
+  width: 100%;
+  height: 42px;       /* Reduzido de 55px para 42px (mais elegante) */
+  border: 1px solid #444444; /* Borda mais fina e discreta que o #777 antigo */
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  margin-bottom: 35px; /* Reduzido drasticamente de 90px para 35px */
+}
+
+.search-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #E0E0E0;
+  font-size: 14px;    /* Reduzido de 16px para 14px */
+}
+
+.pedido-lista {
+  display: flex;
+  flex-direction: column; 
+  gap: 12px;          /* Reduzido o espaço entre os itens de 28px para 12px */
+}
+
+.pedido-item {
+  width: 100%;
+  height: 48px;       /* Reduzido de 58px para 48px */
+  border: 1px solid #333333; /* Linhas mais sutis */
+  border-radius: 6px;
+  display: grid;
+  grid-template-columns: 80px 1fr 140px 120px; /* Ajustado proporções das colunas */
+  align-items: center;
+  padding: 0 15px;
+  color: #BDBDBD;
+  font-size: 14px;    /* Fontes dos itens ligeiramente menores */
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Efeito hover para dar vida à lista */
+.pedido-item:hover {
+  background-color: #252525;
+  border-color: #555555;
+}
+
+.status.andamento {
+  color: #44DF2F;
+  font-weight: 600;
+}
+
+.status.cancelado {
+  color: #FF5C5C;
+  font-weight: 600;
+}
+
+.total {
+  color: #E0E0E0;     /* Um pouco mais claro para dar leitura no fundo escuro */
+  font-weight: 500;
+}
 
 .nome-cliente {
-    font-weight: bold;       
-    color: #333333;        
-    font-size: 1.1rem;  
-}     
+  font-weight: 500;      
+  color: #FFFFFF;     /* Corrigido: Estava #333333 (escuro), sumia no fundo escuro do card */
+}    
 
 .pedido-item .status {
-    display: flex;
-    justify-content: center; 
-    align-items: center;  
-    text-align: center;     
+  display: flex;
+  justify-content: center; 
+  align-items: center;  
+  text-align: center;     
 }
