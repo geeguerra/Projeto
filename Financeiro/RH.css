@@ -1,0 +1,125 @@
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0; 
+  width: 100%;
+  min-height: 100vh;
+ background: #121212;
+  overflow-x: hidden; 
+}
+
+
+.titulo-logo{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.titulo-logo h1{
+  color: #D4AF37;
+  font-size: 1.5rem; 
+  margin: 0;
+  font-weight: bold;
+}
+
+
+
+
+#ContainerFinanceiro{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+
+
+.CardFinanceiro{
+    width: 420px;
+    background: #1E1E1E;
+    border: 1px ;
+    border-radius: 10px;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #000;
+      
+}
+
+
+
+.CardFinanceiro h2{
+    text-align: center;
+    color: #D4AF37;
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+
+
+.FormularioFinanaceiro{
+    display: flex;
+    flex-direction: column;
+}
+
+.FormularioFinanaceiro label{
+    color: #D4AF37;
+    font-size: 14px;
+    margin-bottom: 8px;
+    margin-top: 18px;
+}
+
+.FormularioFinanaceiro input{
+    height: 45px;
+    border-radius: 6px;
+    border: 1px solid #777;
+    background: transparent;
+    padding: 0 12px;
+    color: white;
+    font-size: 15px;
+    outline: none;
+}
+
+
+
+.botaoPagamento{
+    margin-top: 40px;
+    height: 45px;
+    border-radius: 8px;
+    border: 1px solid #D4AF37;
+    background: transparent;
+    color: #D4AF37;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.botaoPagamento:hover{
+    background: #D4AF37;
+    color: black;
+}
+
+#menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;         
+    padding: 20px;
+    background: #1E1E1E; 
+    border-bottom: 1px solid #2A2A2A;
+    flex-wrap: wrap;    
+}
+
+#menu a {
+    color: #A0A0A0;     
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent; 
+}
+
+
+#menu a:hover {
+    color: #FFF;        
+}
+
+
