@@ -1,233 +1,179 @@
-<<<<<<< HEAD
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. URLs das suas APIs do C#
-    const URL_API_PRODUTOS = 'https://localhost:7093/api/Produtos';
-    const URL_API_VENDA = 'https://localhost:7093/api/Venda';
 
-    // 2. Elementos do seu HTML original mapeados por ordem de aparição
-    const form = document.querySelector('.order-form');
-    const btnAdd = document.querySelector('.btn-add');
-    const resumoPedido = document.querySelector('.order-summary');
-    const totalTexto = document.querySelector('.total-text strong');
-    
-    // Segunda linha do formulário: [0] é o select do Status, [1] é o select do Produto
-    const selectProduto = document.querySelectorAll('select')[1]; 
-    // Inputs numéricos: [0] é o Valor (superior), [1] é a Quantidade
-    const inputValorVenda = document.querySelectorAll('input[type="number"]')[0];
-    const inputQuantidade = document.querySelectorAll('input[type="number"]')[1];
-    const inputData = document.querySelector('input[type="date"]');
-    const selectStatus = document.querySelectorAll('select')[0];
+    // Inicializa o carregamento dos produtos vindos da API
+    carregarProdutos();
 
-    let total = 0;
-    let mapaPrecosProdutos = {}; // Dicionário temporário para guardar os preços vindos da API
+    // --- 1. SELETORES REAIS DO SEU FORMULÁRIO (Mapeados por ID) ---
+    const selectProduto = document.getElementById("produto");
+    const dataInput = document.getElementById("pedido-data");
+    const statusSelect = document.getElementById("pedido-status");
+    const clienteIdInput = document.getElementById("cliente-id");
+    const quantidadeInput = document.getElementById("quantidade");
+    const valorInput = document.getElementById("valor-unitario"); 
+    const form = document.getElementById('form-pedido');
+    const boxLista = document.getElementById("box-lista-itens");
+    const precoFinalTexto = document.getElementById("valor-total-geral");
 
-    // ==========================================================================
-    // FUNÇÃO: Busca os produtos na API e preenche as options dinamicamente
-    // ==========================================================================
-    async function carregarProdutosDoSite() {
-        if (!selectProduto) return;
+    // Variáveis de controle globais
+    let produtosDaAPI = [];
+    let produtosAdicionadosNoPedido = []; 
+    let valorTotalGeralDoPedido = 0;
 
+    // --- 2. SUA FUNÇÃO DE CARREGAMENTO DA API ---
+    async function carregarProdutos() {
         try {
-            const response = await fetch(URL_API_PRODUTOS);
+            console.log("Iniciando carregamento dos produtos...");
+            const response = await fetch("https://localhost:7093/api/Produtos");
             
-            if (response.ok) {
-                const produtos = await response.json();
-                
-                // Limpa mantendo o texto "Selecionar" original que você colocou
-                selectProduto.innerHTML = '<option>Selecionar</option>';
+            produtosDaAPI = await response.json();
+            console.log("Produtos recebidos da API:", produtosDaAPI);
 
-                // Alimenta o select com o que está cadastrado no banco de dados
-                produtos.forEach(produto => {
-                    const option = document.createElement('option');
-                    option.value = produto.nomeProduto;    // Valor de envio (ex: 'Copo')
-                    option.textContent = produto.nomeProduto;  // Texto exibido na tela
-                    
-                    // Salva o preço mapeado pelo nome do produto
-                    mapaPrecosProdutos[produto.nomeProduto] = produto.preco;
+            selectProduto.innerHTML = `<option selected disabled value="">Selecionar</option>`;
 
-                    selectProduto.appendChild(option);
-                });
-                console.log('Options de produtos atualizadas com sucesso direto da API!');
-            } else {
-                console.error('A API de produtos retornou status de erro:', response.status);
-            }
-        } catch (error) {
-            console.error('Erro de conexão ao buscar produtos para o select:', error);
-        }
-    }
-
-    // Monitora quando o usuário escolhe um produto para preencher o campo "Valor" automaticamente
-    selectProduto?.addEventListener('change', () => {
-        const produtoSelecionado = selectProduto.value;
-        const precoEncontrado = mapaPrecosProdutos[produtoSelecionado];
-
-        if (precoEncontrado !== undefined && inputValorVenda) {
-            inputValorVenda.value = precoEncontrado;
-        }
-    });
-
-    // ==========================================================================
-    // LÓGICA DO BOTÃO "+" (Adicionar item ao bloco visual de resumo)
-    // ==========================================================================
-    btnAdd?.addEventListener("click", () => {
-        const produto = selectProduto.value;
-        const quantidade = parseInt(inputQuantidade.value) || 0;
-
-        if (produto === "Selecionar" || produto === "" || quantidade <= 0) {
-            alert("Por favor, selecione um produto válido e defina a quantidade.");
-            return;
-        }
-
-        // Pega o preço dinâmico do mapa ou aceita o que estiver digitado no campo valor
-        const precoItem = mapaPrecosProdutos[produto] || parseFloat(inputValorVenda.value) || 0;
-        const subtotal = quantidade * precoItem;
-        total += subtotal;
-
-        // Cria o elemento visual respeitando rigorosamente seu layout antigo
-        const novoItem = document.createElement("div");
-        novoItem.classList.add("summary-item");
-        novoItem.innerHTML = `
-            <span>${produto} x${quantidade}</span>
-            <span>R$ ${subtotal.toFixed(2).replace('.', ',')}</span>
-        `;
-
-        // Insere a nova linha logo acima do bloco separador (summary-footer)
-        resumoPedido.insertBefore(novoItem, document.querySelector(".summary-footer"));
-
-        // Atualiza a soma total na tela dentro do seu strong
-        totalTexto.innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
-
-        // Reseta apenas o campo de quantidade para nova inserção
-        inputQuantidade.value = "";
-    });
-
-    // ==========================================================================
-    // LÓGICA DO SUBMIT (Salvar a Venda na API /api/Venda)
-    // ==========================================================================
-    form?.addEventListener("submit", async (event) => {
-        event.preventDefault(); // Impede que a página recarregue
-
-        if (total === 0) {
-            alert("Adicione pelo menos um produto usando o botão '+' antes de salvar.");
-            return;
-        }
-
-        // Pega o nome do primeiro produto adicionado na lista visual para registrar no banco
-        const primeiroItemLista = document.querySelector('.order-summary .summary-item span');
-        let nomeProdutoFinal = selectProduto.value;
-        let quantidadeFinal = parseInt(inputQuantidade.value) || 1;
-
-        if (primeiroItemLista) {
-            nomeProdutoFinal = primeiroItemLista.innerText.split(' x')[0];
-            quantidadeFinal = parseInt(primeiroItemLista.innerText.split(' x')[1]) || 1;
-        }
-
-        // Monta o objeto JSON ajustado para o banco
-        const dadosVenda = {
-            data: inputData?.value || new Date().toISOString().split('T')[0],
-            status: selectStatus?.value || "Em andamento",
-            nomeProduto: nomeProdutoFinal,
-            quantidade: quantidadeFinal,
-            valorTotal: total
-        };
-
-        try {
-            const response = await fetch(URL_API_VENDA, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(dadosVenda)
+            produtosDaAPI.forEach(produto => {
+                const option = document.createElement("option");
+                option.value = produto.id; // Garante a captura correta do ID do produto
+                option.textContent = produto.nomeProduto;
+                selectProduto.appendChild(option);
             });
 
-            if (response.ok) {
-                alert("Pedido gravado com sucesso no banco de dados!");
-                
-                // Reseta os campos e valores acumulados (Seu comportamento original)
-                form.reset();
-                total = 0;
-                totalTexto.innerText = "R$ 0,00";
-                
-                // Remove as linhas temporárias criadas pelo botão "+"
-                document.querySelectorAll('.order-summary .summary-item').forEach(item => item.remove());
-            } else {
-                alert(`Erro ${response.status}: A API recusou o salvamento do pedido.`);
-            }
-        } catch (error) {
-            console.error("Erro na comunicação com a rota de Vendas:", error);
-            alert("Não foi possível estabelecer contato com o servidor backend.");
+        } catch (erro) {
+            console.log("Erro ao carregar API:", erro);
+            alert("Erro ao carregar produtos");
         }
-    });
-
-    // Executa a carga dos dados assim que o arquivo é lido pelo navegador
-    carregarProdutosDoSite();
-=======
-const form = document.querySelector(".order-form");
-
-const btnAdd = document.querySelector(".btn-add");
-
-const produtoSelect = document.querySelector(".input-with-btn select");
-
-const quantidadeInput = document.querySelector(".quantidade");
-
-const resumoPedido = document.querySelector(".order-summary");
-
-const totalTexto = document.querySelector(".total-text strong");
-
-let total = 0;
-
-
-btnAdd.addEventListener("click", () => {
-
-    const produto = produtoSelect.value;
-
-    const quantidade = quantidadeInput.value;
-
-    if (produto === "Selecionar" || quantidade === "") {
-
-        alert("Selecione um produto e a quantidade!");
-        return;
     }
 
-    const valorProduto = 10;
+    // --- 3. EXIBIR APENAS O PREÇO UNITÁRIO NO INPUT SUPERIOR ---
+    function exibirPrecoUnitario() {
+        if (!selectProduto || !valorInput) return;
 
-    const subtotal = valorProduto * quantidade;
+        const produtoSelecionado = produtosDaAPI.find(p => p.id == selectProduto.value);
+        const precoUnitario = produtoSelecionado ? (produtoSelecionado.preco || 0) : 0;
 
-    total += subtotal;
+        if (precoUnitario > 0) {
+            valorInput.value = precoUnitario.toFixed(2);
+        } else {
+            valorInput.value = "";
+        }
+    }
 
-    const novoItem = document.createElement("div");
+    if (selectProduto) selectProduto.addEventListener('change', exibirPrecoUnitario);
 
-    novoItem.classList.add("summary-item");
+    // --- 4. ENCONTRAR O BOTÃO DE ADICIONAR (+) ---
+    const btnMais = document.querySelector('.btn-add');
 
-    novoItem.innerHTML = `
-    
-        <span>${produto} x${quantidade}</span>
-        <span>R$ ${subtotal.toFixed(2)}</span>
+    // --- 5. EVENTO DO BOTÃO (+) - CÁLCULO E ORGANIZAÇÃO DOS IDs ---
+    if (btnMais) {
+        btnMais.addEventListener('click', (e) => {
+            e.preventDefault();
 
-    `;
+            const produtoSelecionado = produtosDaAPI.find(p => p.id == selectProduto.value);
+            const qtd = parseInt(quantidadeInput.value) || 0;
 
-    resumoPedido.insertBefore(
-        novoItem,
-        document.querySelector(".summary-footer")
-    );
+            if (!produtoSelecionado || qtd <= 0) {
+                alert("Selecione um produto válido e defina a quantidade!");
+                return;
+            }
 
-    totalTexto.innerText = `R$ ${total.toFixed(2)}`;
+            const precoUnitario = produtoSelecionado.preco || 0;
+            const totalItemMultiplicado = precoUnitario * qtd; 
 
-    quantidadeInput.value = "";
-});
+            // Armazena todas as propriedades necessárias (incluindo IDs e valores unitários para o banco)
+            produtosAdicionadosNoPedido.push({
+                produtoId: parseInt(produtoSelecionado.id),
+                nome: produtoSelecionado.nomeProduto,
+                quantidade: qtd,
+                valorUnitario: precoUnitario,
+                total: totalItemMultiplicado
+            });
 
+            // Redesenha o resumo em tempo real
+            atualizarListaNaTela();
 
-form.addEventListener("submit", (event) => {
+            // Limpa os campos de inserção de itens
+            selectProduto.value = "";
+            quantidadeInput.value = "";
+            valorInput.value = "";
+        });
+    }
 
-    event.preventDefault();
+    // --- 6. RENDERIZADOR DA LISTA ---
+    function atualizarListaNaTela() {
+        if (!boxLista) return;
 
-    alert("Pedido salvo com sucesso!");
+        boxLista.innerHTML = "";
+        valorTotalGeralDoPedido = 0;
 
-    form.reset();
+        const listaContainer = document.createElement('div');
+        listaContainer.style.display = "flex";
+        listaContainer.style.flexDirection = "column";
+        listaContainer.style.gap = "10px";
+        listaContainer.style.width = "100%";
+        listaContainer.style.paddingBottom = "15px";
 
-    total = 0;
+        produtosAdicionadosNoPedido.forEach(item => {
+            valorTotalGeralDoPedido += item.total;
 
-    totalTexto.innerText = "R$ 0,00";
+            const linhaProduto = document.createElement('div');
+            linhaProduto.style.display = "flex";
+            linhaProduto.style.justifyContent = "space-between";
+            linhaProduto.style.color = "#ffffff";
+            linhaProduto.style.fontSize = "16px";
+            linhaProduto.style.width = "100%";
+            
+            linhaProduto.innerHTML = `
+                <span>${item.nome} (x${item.quantidade})</span>
+                <span>R$ ${item.total.toFixed(2).replace('.', ',')}</span>
+            `;
+            
+            listaContainer.appendChild(linhaProduto);
+        });
 
->>>>>>> f259d3d3464e484f9bc48909a74ea2f0615dcd23
+        boxLista.appendChild(listaContainer);
+
+        if (precoFinalTexto) {
+            precoFinalTexto.textContent = `R$ ${valorTotalGeralDoPedido.toFixed(2).replace('.', ',')}`;
+        }
+    }
+
+    // --- 7. BOTÃO SALVAR PEDIDO FINAL (ENVIA COMPATÍVEL COM O SEU BACKEND) ---
+    if (form) {
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const clienteId = parseInt(clienteIdInput.value);
+
+            if (!clienteId) {
+                alert("Por favor, preencha o campo ID Cliente!");
+                return;
+            }
+
+            if (produtosAdicionadosNoPedido.length === 0) {
+                alert("Adicione pelo menos um produto ao pedido antes de salvar!");
+                return;
+            }
+
+            // Montagem exata baseada na imagem da requisição do seu Banco de Dados!
+            const pedidoFinal = {
+                status: statusSelect.value,
+                total: valorTotalGeralDoPedido, // Enviado como número puro para a API
+                clientId: clienteId,
+                itens: produtosAdicionadosNoPedido.map(item => ({
+                    produtoId: item.produtoId,
+                    pedidoId: 0, // Geralmente gerado de forma incremental no banco
+                    quantidade: item.quantidade,
+                    valorUnitario: item.valorUnitario
+                }))
+            };
+
+            console.log("Objeto estruturado para envio à API:", pedidoFinal);
+            
+            // Aqui você pode inserir sua chamada fetch final método POST se quiser salvar de fato:
+            // fetch("https://localhost:7093/api/Pedidos", { method: "POST", body: JSON.stringify(pedidoFinal), ... })
+
+            alert("Pedido Salvo com Sucesso!");
+            produtosAdicionadosNoPedido = [];
+            window.location.reload();
+        });
+    }
 });

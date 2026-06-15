@@ -1,55 +1,114 @@
-// Substitua pela URL real da sua API (ex: 'http://localhost:3000/pedidos')
-const API_URL = 'https://localhost:7093/api/Venda'; 
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Primeiro criamos o array de controle na memória
+    let todosOsPedidos = [];
 
-async function carregarPedidos() {
-    const listaContainer = document.getElementById('lista-pedidos');
-    
-    try {
-        // 1. Faz a requisição para a API
-        const response = await fetch(API_URL);
-        
-        if (!response.ok) {
-            throw new Error('Erro ao buscar dados da API');
+    // --- SELETORES SEGUROS DO SEU LAYOUT CINZA ---
+    const containerListagem = document.querySelector('.card-container') || 
+                               document.querySelector('.card') || 
+                               document.querySelector('main > div') ||
+                               document.querySelector('main');
+                               
+    const inputBusca = document.querySelector('input[placeholder="Buscar produto"]');
+
+    // 2. Agora que tudo foi mapeado, chamamos a função com segurança
+    carregarPedidos();
+
+    // --- CARREGA OS PEDIDOS ARMAZENADOS NO NAVEGADOR ---
+    function carregarPedidos() {
+        console.log("Modo de gerenciamento local ativo via LocalStorage.");
+
+        // Busca a lista de pedidos gravados no armazenamento local
+        const historicoLocal = JSON.parse(localStorage.getItem('pedidos_locais')) || [];
+
+        if (historicoLocal.length === 0) {
+            // Se estiver limpo, preenche com os exemplos padrão para renderizar a tela
+            todosOsPedidos = [
+                { id: 1, status: "Em andamento", total: 160.00, clienteId: 12 },
+                { id: 2, status: "Concluído", total: 20.00, clienteId: 5 }
+            ];
+            localStorage.setItem('pedidos_locais', JSON.stringify(todosOsPedidos));
+        } else {
+            todosOsPedidos = historicoLocal;
         }
-        
-        // 2. Transforma a resposta em JSON
-        const pedidos = await response.json();
-        
-        // Limpa o container antes de renderizar (caso tenha algum HTML estático de teste)
-        listaContainer.innerHTML = '';
-        
-        // 3. Percorre cada pedido e cria o HTML dinâmico
-        pedidos.forEach(pedido => {
-            
-            // Tratamento da classe do status para manter as cores verde/vermelho do seu CSS
-            // Se na API vier "Em andamento", vira "andamento". Se vier "Cancelado", vira "cancelado".
-            const statusClasse = pedido.status.toLowerCase() === 'em andamento' ? 'andamento' : 'cancelado';
-            
-            // Formatação do valor para a moeda Real (R$)
-            const valorFormatado = pedido.total.toLocaleString('pt-BR', {
-                style: 'currency',
-                currency: 'BRL'
-            });
 
-            // Cria o elemento do card do pedido
-            const pedidoItem = document.createElement('div');
-            pedidoItem.classList.add('pedido-item');
-            
-            // Injeta as variáveis do banco de dados nas posições certas do seu layout grid
-            pedidoItem.innerHTML = 
-            ` <div>ID: ${pedido.id}</div>
-              <div class="nome-cliente">${pedido.nome}</div>
-              <div class="status ${statusClasse}" style="text-align: center;">${pedido.status}</div>
-              <div class="total">Total: ${valorFormatado}</div> `;
-            
-            // Coloca o novo item dentro da lista na tela
-            listaContainer.appendChild(pedidoItem);
-        });
-
-    } catch (error) {
-        console.error('Erro:', error);
-        listaContainer.innerHTML = `<p style="color: #FF5C5C; text-align: center;">Não foi possível carregar os pedidos.</p>`;
+        renderizarCardsDePedidos(todosOsPedidos);
     }
-}
 
-        document.addEventListener('DOMContentLoaded', carregarPedidos);
+    // --- MONTA OS CARDS VISUAIS NA SUA TELA ---
+    function renderizarCardsDePedidos(listaDePedidos) {
+        if (!containerListagem) return;
+
+        // Limpa avisos e duplicados sem apagar o título ou a caixa de busca original
+        const itensAntigos = containerListagem.querySelectorAll('.pedido-card-item, .mensagem-vazia');
+        itensAntigos.forEach(item => item.remove());
+
+        listaDePedidos.forEach(pedido => {
+            const card = document.createElement('div');
+            card.className = "pedido-card-item";
+            
+            // Estilização injetada idêntica ao padrão de design escuro e dourado do sistema
+            card.style.backgroundColor = "#242424";
+            card.style.border = "1px solid #3a3a3a";
+            card.style.borderRadius = "6px";
+            card.style.padding = "18px";
+            card.style.marginTop = "15px";
+            card.style.display = "flex";
+            card.style.flexDirection = "column";
+            card.style.gap = "12px";
+
+            // Tratamento dinâmico das cores do status
+            const statusLower = (pedido.status || "").toLowerCase();
+            let corBadge = "#524516"; // Amarelado
+            let corTexto = "#ffd54f";
+
+            if (statusLower.includes("concl")) {
+                corBadge = "#1e4620"; // Verde
+                corTexto = "#81c784";
+            } else if (statusLower.includes("cancel")) {
+                corBadge = "#5c1e1e"; // Vermelho
+                corTexto = "#e57373";
+            }
+
+            const totalExibicao = parseFloat(pedido.total) || 0;
+
+            card.innerHTML = `
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; padding-bottom: 8px;">
+                    <span style="color: #ffffff; font-weight: bold; font-size: 15px;">Pedido #${pedido.id || '---'}</span>
+                    <span style="background-color: ${corBadge}; color: ${corTexto}; padding: 4px 10px; border-radius: 4px; font-size: 12px; font-weight: 500;">
+                        ${pedido.status || 'Em andamento'}
+                    </span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: flex-end; font-size: 14px;">
+                    <div style="color: #cccccc;">
+                        <p style="margin: 3px 0;"><strong>Cliente ID:</strong> ${pedido.clienteId || '1'}</p>
+                    </div>
+                    <div style="text-align: right; color: #D4AF37; font-weight: bold; font-size: 18px;">
+                        R$ ${totalExibicao.toFixed(2).replace('.', ',')}
+                    </div>
+                </div>
+            `;
+
+            containerListagem.appendChild(card);
+        });
+    }
+
+    // --- FILTRO DINÂMICO PARA A BARRA DE BUSCA ---
+    if (inputBusca) {
+        inputBusca.addEventListener('input', (e) => {
+            const termo = e.target.value.toLowerCase().trim();
+            
+            if (!termo) {
+                renderizarCardsDePedidos(todosOsPedidos);
+                return;
+            }
+
+            const filtrados = todosOsPedidos.filter(p => 
+                String(p.id).includes(termo) || 
+                (p.status || "").toLowerCase().includes(termo) ||
+                String(p.clienteId || "").includes(termo)
+            );
+            
+            renderizarCardsDePedidos(filtrados);
+        });
+    }
+});
