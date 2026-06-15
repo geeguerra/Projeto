@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Gestão - Financeiro</title>
-
-    <link rel="stylesheet" href="RH.css">
+    <link rel="stylesheet" href="Rh.css">
     <link rel="stylesheet" href="../hearder.css">
-</head>
 
+</head>
 <body>
 
+     <!-- header -->
 <header class="header">
 
     <div class="titulo-logo">
@@ -19,83 +19,52 @@
     </div>
 
     <nav id="menu">
+        <a href="../SobreOProduto/SobreOProduto.html"></a> 
         <a href="../Produto/">Pedido</a>
         <a href="../Funcionarios/Listagem.html">Funcionários</a>
         <a href="../ClienteFornecedor/Cadastro.html">Fornecedores e Clientes</a>
         <a href="../Estoque/Cadastro.html">Estoque</a>
         <a href="../Financeiro/Cadastro.html">Financeiro</a>
         <a href="../Financeiro/Pagamento.html">Pagamento</a>
+
+
+
     </nav>
 
 </header>
 
 <main>
-
     <div id="ContainerFinanceiro">
-
-        <!-- FORMULÁRIO -->
         <div class="CardFinanceiro">
 
             <h2>Novo Registro</h2>
 
             <div class="FormularioFinanaceiro">
 
-                <label for="descricao">Descrição</label>
-                <input type="text" id="descricao">
+          <label for="descricao">Descrição:</label>
+          <input type="text">
 
                 <label for="valor">Valor (R$)</label>
-                <input type="number" id="valor">
+          <input type="text">
 
-                <label for="dataPagamento">Data de pagamento</label>
-                <input type="date" id="dataPagamento">
+          <label for="DataPagamento">Data de pagamento:</label>
+          <input type="date" >
 
-                <label for="dataVencimento">Data de vencimento</label>
-                <input type="date" id="dataVencimento">
+          <label for="DataVencimento">Data de vencimento:</label>
+          <input type="date" >
 
-                <button
-                    id="botaoPagamento"
-                    class="botaoPagamento"
-                    onclick="cadastrarFinanceiro()">
+          <button class="botaoPagamento">Cadastrar Pagamento</button>
+
 
                     Cadastrar Pagamento
 
-                </button>
 
             </div>
 
         </div>
-
-        <!-- LISTA -->
-        <div class="CardLista">
-
-            <h2>Pagamentos</h2>
-
-            <table>
-
-                <thead>
-                    <tr>
-                        <th>Descrição</th>
-                        <th>Valor</th>
-                        <th>Pagamento</th>
-                        <th>Vencimento</th>
-                        <th colspan="3">Ações</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-
-                </tbody>
-
-            </table>
-
-        </div>
-
-    </div>
-
 </main>
 
-
-<script src="RH.js"></script>
+    <script src="Rh.js"></script>
 
 </body>
 </html>
