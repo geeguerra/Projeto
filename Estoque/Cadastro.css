@@ -73,10 +73,10 @@ body {
     width: 100%;
     height: 48px;
     padding: 0 15px;
-    background: #252525;
-    border: 1px solid #444;
+    background: #fff9f9;
+    border: 1px solid #ffffff;
     border-radius: 8px;
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 16px;
     outline: none;
     box-sizing: border-box;
@@ -170,6 +170,9 @@ nav a {
 
 nav a:hover {
     color: #D4AF37;
-}            
+}
 
-
+.campo select option {
+    background-color: #1E1E1E !important;
+    color: #ffffff !important;            
+}
