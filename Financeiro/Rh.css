@@ -8,13 +8,13 @@ body {
 }
 
 
-.titulo-logo{
+.titulo-logo {
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
-.titulo-logo h1{
+.titulo-logo h1 {
   color: #D4AF37;
   font-size: 1.5rem; 
   margin: 0;

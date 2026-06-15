@@ -1,12 +1,12 @@
 body {
     font-family: "Inter", sans-serif;
     margin: 0;
+  width: 100%;
     min-height: 100vh;
     background: #121212;
     overflow-x: hidden;
 }
 
-/* HEADER */
 
 .titulo-logo {
     display: flex;
@@ -21,175 +21,77 @@ body {
     font-weight: bold;
 }
 
-/* MENU */
 
-#menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-    background: #1E1E1E;
-    border-bottom: 1px solid #2A2A2A;
-    flex-wrap: wrap;
-}
 
-#menu a {
-    color: #A0A0A0;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: .3s;
-}
-
-#menu a:hover {
-    color: white;
-}
-
-/* CONTAINER */
 
 #ContainerFinanceiro{
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    gap: 30px;
-    padding: 40px;
+    margin-top: 50px;
 }
 
-/* LISTA */
 
-.CardLista{
-    width: 800px;
+
+.CardFinanceiro{
+    width: 420px;
     background: #1E1E1E;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0,0,0,.5);
-}
-
-.CardLista h2{
-    color: #D4AF37;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-table{
-    width: 100%;
-    border-collapse: collapse;
-}
-
-thead{
-    background: #252525;
-}
-
-th{
-    color: #D4AF37;
-    padding: 12px;
-}
-
-td{
-    color: white;
-    padding: 12px;
-    text-align: center;
-    border-bottom: 1px solid #333;
-}
-
-td button{
-    padding: 8px 12px;
-    border: 1px solid #D4AF37;
-    background: transparent;
-    color: #D4AF37;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-td button:hover{
-    background: #D4AF37;
-    color: black;
-}
-
-/* CARD */
-
-.CardFinanceiro {
-    width: 450px;
-    background: #1E1E1E;
+    border: 1px ;
+    border-radius: 10px;
     padding: 40px;
     border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0,0,0,.6);
+    box-shadow: 0 0 15px #000;
+      
 }
 
-.CardFinanceiro h2 {
+
+
+.CardFinanceiro h2{
     text-align: center;
     color: #D4AF37;
-    font-size: 36px;
-    margin-bottom: 35px;
+    font-size: 25px;
+    margin-bottom: 30px;
 }
 
 
 
-.FormularioFinanaceiro {
+.FormularioFinanaceiro{
     display: flex;
     flex-direction: column;
 }
 
-.FormularioFinanaceiro label {
+.FormularioFinanaceiro label{
     color: #D4AF37;
     font-size: 14px;
     margin-bottom: 8px;
-    margin-top: 15px;
+    margin-top: 18px;
 }
 
-.FormularioFinanaceiro input {
-    width: 100%;
-    height: 50px;
-    box-sizing: border-box;
-    border: 1px solid #555;
-    border-radius: 8px;
-    background: #252525;
+.FormularioFinanaceiro input{
+    height: 45px;
+    border-radius: 6px;
+    border: 1px solid #777;
+    background: transparent;
+    padding: 0 12px;
     color: white;
-    padding: 0 15px;
     font-size: 15px;
     outline: none;
-    transition: .3s;
 }
 
-.FormularioFinanaceiro input:focus {
-    border-color: #D4AF37;
-    box-shadow: 0 0 8px rgba(212,175,55,.4);
-}
 
-.FormularioFinanaceiro input::placeholder {
-    color: #888;
-}
 
-/* DATE */
-
-.FormularioFinanaceiro input[type="date"] {
-    color: white;
-    color-scheme: dark;
-}
-
-.FormularioFinanaceiro input[type="date"]::-webkit-calendar-picker-indicator {
-    filter: invert(1);
-    cursor: pointer;
-}
-
-/* BOTÃO */
-
-.botaoPagamento {
-    width: 100%;
-    height: 50px;
-    margin-top: 30px;
-    border: 1px solid #D4AF37;
+.botaoPagamento{
+    margin-top: 40px;
+    height: 45px;
     border-radius: 8px;
+    border: 1px solid #D4AF37;
     background: transparent;
     color: #D4AF37;
     font-size: 16px;
-    font-weight: 600;
     cursor: pointer;
-    transition: .3s;
+    transition: 0.3s;
 }
 
-.botaoPagamento:hover {
+.botaoPagamento:hover{
     background: #D4AF37;
     color: black;
 }
