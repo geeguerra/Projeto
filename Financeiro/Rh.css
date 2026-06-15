@@ -95,3 +95,31 @@ body {
     background: #D4AF37;
     color: black;
 }
+
+#menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;         
+    padding: 20px;
+    background: #1E1E1E; 
+    border-bottom: 1px solid #2A2A2A;
+    flex-wrap: wrap;    
+}
+
+#menu a {
+    color: #A0A0A0;     
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent; 
+}
+
+
+#menu a:hover {
+    color: #FFF;        
+}
+
+
