@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Gestão</title>
+
+    <link rel="stylesheet" href="../../hearder.css">
+    <link rel="stylesheet" href="Cadastro.css">
+
+    
+</head>
+
+<body>
+
+    <header class="header">
+
+        <div class="titulo-logo">
+            <img src="../../assets/logo.png" alt="Logo" class="logo">
+            <h1>Sistema de Gestão | Succeed & Failed</h1>
+        </div>
+    
+        <nav id="menu">            
+            <a href="../ClienteFornecedor/Listagem.html">Clientes e Fornecedores</a> 
+            <a href="../Funcionarios/Listagem.html">Funcionários</a>  
+            <a href="../Pedido/Listagem.html">Pedido</a>
+            <a href="../Financeiro/Pagamento.html">Pagamento</a>
+            <a href="../Estoque/Cadastro.html">Estoque</a>    
+            <a href="../Financeiro/Rh.html">RH</a>
+
+
+        </nav>
+        </header>
+
+        <main class="conteudo-pricipal">
+
+            <div class="form-card">
+        
+                <div class="form-title">
+                    <h2>Cadastro de Produto</h2>
+                    <p>Registre uma nova venda/pedido</p>
+                </div>
+        
+                <form>
+                    <div class="form-grid">
+        
+                        <div class="input-group full-width">
+                            <label for="nome">Nome Produto</label>
+                            <input type="text" id="nome" placeholder="Digite o nome do produto">
+                        </div>
+        
+                        <div class="input-group">
+                            <label for="codigo">Código</label>
+                            <input type="text" id="codigo" placeholder="Ex: PROD123">
+                        </div>
+        
+                        <div class="input-group">
+                            <label for="estoque">Quantidade Estoque</label>
+                            <input type="number" id="estoque" placeholder="0">
+                        </div>
+        
+                        <div class="input-group full-width">
+                            <label for="preco">Preço</label>
+                            <input type="text" id="preco" placeholder="R$: 0,00">
+                        </div>
+        
+                    </div>
+        
+                    <div class="form-footer">
+                        <button type="submit" class="btn-submit">
+                            Salvar Produto
+                        </button>
+                    </div>
+        
+                </form>
+        
+            </div>
+        
+        </main>
+        <script src="Cadastro.js"></script>
+    </body>
+    </html>
