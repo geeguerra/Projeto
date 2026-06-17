@@ -170,6 +170,193 @@ input, select {
     cursor: pointer;
     font-weight: 500;
     transition: 0.3s;
+    font-size: 15px;
+}
+
+.btn-save:hover {
+    background-color: #D4AF37;
+    color: #1e1e1e;
+}
+main {
+  display: flex;
+  align-items: center;
+  padding: 5%;
+  justify-content: center;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0; 
+  width: 100%;
+  min-height: 100vh;
+  background: #121212;
+  overflow-x: hidden; 
+}
+
+
+
+.cabecalho {
+  display: flex;
+  justify-content: space-between; 
+  padding: 10px 0;
+  font-weight: bold;
+  color: #fff; 
+}
+
+.cabecalho span {
+  flex: 1; 
+  text-align: left;
+}
+
+.titulo-logo {
+  display: flex;
+  align-items: center;
+  gap: 15px; 
+}
+
+h1 {
+  color: #D4AF37;
+  font-size: 1.5rem; 
+  margin: 0;
+  font-weight: bold;
+}
+
+
+
+#conteudo {
+  padding: 20px;
+  color: white;
+}
+
+.card-container {
+    background-color: #1e1e1e; 
+    width: 100%;
+    max-width: 800px;
+    padding: 40px;
+    
+    border-radius: 8px;
+    border: 1px solid #333;
+    color: #D4AF37;
+      box-shadow: 0 0 15px #000;
+      
+}
+
+.card-header {
+    text-align: center;
+    margin-bottom: 30px;
+    display: block;
+    align-items: center;
+}
+
+.card-header h2 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.card-header p {
+    font-size: 0.9rem;
+}
+
+
+.order-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.flex-2 { flex: 2; }
+.flex-1 { flex: 1; }
+
+label {
+    font-size: 0.85rem;
+}
+
+input, select {
+    background-color: #2a2a2a;
+    border: 1px solid #555;
+    border-radius: 6px;
+    padding: 10px;
+    color: #ccc;
+    outline: none;
+}
+
+.input-with-btn {
+    display: flex;
+    gap: 10px;
+}
+
+.input-with-btn select {
+    flex: 1;
+}
+
+.btn-add {
+    background: transparent;
+    border: 1.5px solid #D4AF37;
+    color: #D4AF37;
+    width: 40px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-add:hover {
+    background: #D4AF37;
+    color: #1e1e1e;
+}
+
+/* Área de resumo (Cinza mais escuro) */
+.order-summary {
+    background-color: #2d2d2d;
+    border-radius: 6px;
+    padding: 20px;
+    margin-top: 10px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    color: #aaa;
+}
+
+.summary-footer {
+    text-align: right;
+    border-top: 1px solid #444;
+    padding-top: 15px;
+}
+
+.total-text {
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.btn-save {
+    background-color: transparent;
+    border: 1.5px solid #D4AF37;
+    color: #D4AF37;
+    padding: 10px 30px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s;
+    font-size: 15px;
 }
 
 .btn-save:hover {

@@ -30,17 +30,24 @@ async function apiFetch(endpoint = "", method = "GET", data = null) {
 
     return await response.json().catch(() => null);
 }
-
 async function carregarProdutos() {
 
     try {
 
+        console.log("Iniciando carregamento dos produtos...");
+
         const response =
             await fetch("https://localhost:7093/api/Produtos");
 
+        console.log("Status:", response.status);
+
         const produtos = await response.json();
 
+        console.log("Produtos recebidos:", produtos);
+
         const select = document.getElementById("produto");
+
+        console.log("Select encontrado:", select);
 
         select.innerHTML = `
             <option selected disabled value="">
@@ -50,16 +57,20 @@ async function carregarProdutos() {
 
         produtos.forEach(produto => {
 
-            select.innerHTML += `
-                <option value="${produto.id}">
-                    ${produto.nomeProduto}
-                </option>
-            `;
+            console.log("Produto:", produto);
+
+            const option = document.createElement("option");
+
+            option.value = produto.id;
+
+            option.textContent = produto.nomeProduto;
+
+            select.appendChild(option);
         });
 
     } catch (erro) {
 
-        console.log(erro);
+        console.log("Erro:", erro);
 
         alert("Erro ao carregar produtos");
     }

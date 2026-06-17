@@ -9,113 +9,106 @@
 </head>
 <body>
 
- <header class="header">
-
+<header class="header">
     <div class="titulo-logo">
         <img src="../assets/logo.png" alt="Logo" class="logo">
         <h1>Sistema de Gestão | Succeed & Failed</h1>
     </div>
 
-    <nav id="menu">            
-        <a href="../Login/Cadastro.html">Login</a>
-        <a href="../../Financeiro/Cadastro.html">RH</a>
+    <nav id="menu">    
+        
+        <a href="../ClienteFornecedor/Cadastro.html">Fornecedores e Clientes</a>
+        <a href="../SobreOProduto/SobreOProduto.html">Produto</a> 
         <a href="../Funcionarios/Listagem.html">Funcionários</a>
-        <a href="../Estoque/Cadastro.html">Estoque</a>
-        <a href="../Fornecedor/FornecedorCliente.html">Fornecedores</a>
-        <a href="../Produto/Cadastro.html">Produtos</a>
-        <a href="../Estoque/Cadastro.html">Estoque</a>
-        <a href="../Financeiro/Pagamento.html">Pagamento</a>
-        <a href="../Fornecedor/FornecedorCliente.html">Clientes</a>
-        <a href="../Pedido/Cadastro.html">Pedido</a>
-        <a href="../Pedido/Listagem.html">Listagem</a>
+        <a href="../SobreOProduto/SobreOProduto.html">Pedido</a> 
+        <a href="../SobreOProduto/SobreOProduto.html">Estoque</a> 
+             <a href="../SobreOProduto/SobreOProduto.html">RH</a> 
 
+
+
+          
+       
+        
+        <a href="../Estoque/Cadastro.html">Estoque</a>    
+        <a href="../Financeiro/Cadastro.html">Financeiro</a>
     </nav>
-
 </header>
 
 <main class="folha-container">
 
     <div class="formulario">
-
         <h1>RH</h1>
         <h2>Folha de Pagamento</h2>
 
         <div class="campo">
             <label>Funcionário</label>
-            <select>
-                <option>Selecione</option>
+            <select id="funcionario">
+                <option selected disabled value="">Selecione o Funcionário</option>
             </select>
         </div>
 
         <div class="campo">
             <label>Salário Base (R$)</label>
-            <input type="number" placeholder="0,00">
+            <input type="number" id="salarioBase" placeholder="0,00">
         </div>
 
         <div class="campo">
             <label>Horas Extras</label>
-            <input type="number" placeholder="0">
+            <input type="number" id="horasExtras" placeholder="0">
         </div>
 
         <div class="campo">
             <label>Valor Hora Extra (R$)</label>
-            <input type="number" placeholder="0,00">
+            <input type="number" id="valorHoraExtra" placeholder="0,00">
         </div>
 
         <h3>Descontos (%)</h3>
 
         <div class="desconto">
             <label>Benefícios (VT/VR)</label>
-            <input type="number" placeholder="%">
+            <input type="number" id="descontoBeneficios" placeholder="%">
         </div>
 
         <div class="desconto">
             <label>INSS</label>
-            <input type="number" placeholder="%">
+            <input type="number" id="descontoInss" placeholder="%">
         </div>
 
         <div class="desconto">
             <label>Outros/Faltas</label>
-            <input type="number" placeholder="%">
+            <input type="number" id="descontoOutros" placeholder="%">
         </div>
 
-        <button>Calcular</button>
-
+        <button id="btnCalcular">Calcular</button>
     </div>
 
     <div class="linha"></div>
 
     <div class="resultado">
-
         <h2>Resultados</h2>
-
         <h3>Folha Calculada</h3>
-
-        <p><strong>Funcionário:</strong> Luiza</p>
+        <p><strong>Funcionário:</strong> <span id="resFuncionario">---</span></p>
 
         <div class="grupo">
             <h4>Descontos:</h4>
-
-            <p><strong>VT:</strong> R$ 120</p>
-            <p><strong>VR:</strong> R$ 130</p>
-            <p><strong>INSS:</strong> R$ 160</p>
+            <p><strong>Benefícios (VT/VR):</strong> R$ <span id="resValBeneficios">0,00</span></p>
+            <p><strong>INSS:</strong> R$ <span id="resValInss">0,00</span></p>
+            <p><strong>Outros/Faltas:</strong> R$ <span id="resValOutros">0,00</span></p>
         </div>
 
         <div class="grupo">
             <h4>Benefício:</h4>
-
-            <p><strong>Hora Extra:</strong> R$ 200</p>
+            <p><strong>Hora Extra:</strong> R$ <span id="resValHoraExtra">0,00</span></p>
         </div>
 
         <div class="salario-final">
             <span>Salário Total</span>
-            <input type="text" placeholder="0,00">
+            <input type="text" id="resSalarioTotal" placeholder="0,00" readonly>
         </div>
-
     </div>
 
 </main>
-<script src="pagamento.js"></script>
 
+<script src="pagamento.js"></script>
 </body>
 </html>

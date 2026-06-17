@@ -1,6 +1,13 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
+<<<<<<< HEAD
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema Gestão - Listagem de Produtos</title>
+  <link rel="stylesheet" href="../hearder.css">
+  <link rel="stylesheet" href="Listagem.css">
+=======
     <meta charset="UTF-8">
     <title>Sistema de Gestão - Produto</title> 
     <link rel="stylesheet" href="Listagem.css">-
@@ -13,13 +20,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+>>>>>>> f259d3d3464e484f9bc48909a74ea2f0615dcd23
 </head>
 >>>>>>> 62dbf3691317b4ae9f96b7d6658860ff7cfba3b3
 <body>
-
-
-  <!-- header -->
-    <header class="header">
+  <header class="header">
 
     <div class="titulo-logo">
         <img src="../assets/logo.png" alt="Logo" class="logo">
@@ -27,17 +32,15 @@
     </div>
 
     <nav id="menu">            
-      <a href="../Login/Cadastro.html">Login</a>
-      <a href="../../Financeiro/Cadastro.html">RH</a>
-      <a href="../Funcionarios/Listagem.html">Funcionários</a>
-      <a href="../Estoque/Cadastro.html">Estoque</a>
-      <a href="../Fornecedor/FornecedorCliente.html">Fornecedores</a>
-      <a href="../Produto/Cadastro.html">Produtos</a>
-      <a href="../Estoque/Cadastro.html">Estoque</a>
-      <a href="../Financeiro/Pagamento.html">Pagamento</a>
-      <a href="../Fornecedor/FornecedorCliente.html">Clientes</a>
-      <a href="../Pedido/Cadastro.html">Pedido</a>
-      <a href="../Pedido/Listagem.html">Listagem</a>
+      <nav id="menu">        
+        <a href="../ClienteFornecedor/Listagem.html">Clientes e Fornecedores</a> 
+        <a href="../Funcionarios/Listagem.html">Funcionários</a>  
+        <a href="../Pedido/Listagem.html">Pedido</a>
+        <a href="../Financeiro/Pagamento.html">Pagamento</a>
+        <a href="../Estoque/Cadastro.html">Estoque</a>    
+        <a href="../Financeiro/Rh.html">RH</a>
+
+    </nav>
 
   </nav>
 
@@ -62,8 +65,7 @@
           </table>
   
           <div class="acoes">
-              <button id="btnEstoque">
-                  <p class="titulobutton">Atualizar</p>
+              <button id="btnEstoque"><a href="Cadastro.html" class="btnEstoque">+ Produto</a>
               </button>
           </div>
   
@@ -72,6 +74,5 @@
   </main>
   
   <script src="Listagem.js"></script>
-  
-  </body>
-  </html>
+</body>
+</html>

@@ -18,8 +18,8 @@ body{
     border-radius: 10px;
     background: #070707;
     display: flex;
-    justify-content: center; /* centraliza horizontal */
-    align-items: center;     /* centraliza vertical */
+    justify-content: center; 
+    align-items: center;     
     gap: 50px;
     padding: 30px 50px;
 }
@@ -178,4 +178,8 @@ button{
     .resultado{
         padding-left:0;
     }
+}
+.campo select option {
+    background-color: #1E1E1E !important;
+    color: #ffffff !important;            
 }
