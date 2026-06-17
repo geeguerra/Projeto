@@ -1,49 +1,61 @@
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector("form");
 
+    if (!form) return;
+
     form.addEventListener("submit", async (event) => {
         event.preventDefault();
 
-        const dados = {
-            nome: document.getElementById("nome").value,
-            dataNascimento: document.getElementById("dataNascimento").value,
-            email: document.getElementById("email").value,
-            telefone: document.getElementById("telefone").value,
-            cpf: document.getElementById("cpf").value,
-            cnpj: document.getElementById("cnpj").value,
-            produtoServico: document.getElementById("produtoServico").value,
-            cep: document.getElementById("cep").value,
-            endereco: document.getElementById("endereco").value,
-            bairro: document.getElementById("bairro").value,
-            numero: document.getElementById("numero").value,
-            complemento: document.getElementById("complemento").value,
-            cidade: document.getElementById("cidade").value,
-            estado: document.getElementById("estado").value,
-            tipo: document.getElementById("tipo").value
+        const formData = new FormData(form);
+        const dadosForm = Object.fromEntries(formData.entries());
+
+        const tipoUsuario = dadosForm.tipo;
+        if (!tipoUsuario) {
+            alert("Por favor, selecione se é Cliente ou Fornecedor.");
+            return;
+        }
+
+        const payload = {
+            nome: dadosForm.nome,
+            dataNascimento: dadosForm.dataNascimento || null,
+            email: dadosForm.email,
+            telefone: dadosForm.telefone,
+            cep: dadosForm.cep,
+            endereco: dadosForm.endereco, 
+            bairro: dadosForm.bairro,
+            numeroCasa: dadosForm.numeroCasa, 
+            complemento: dadosForm.complemento,
+            cidade: dadosForm.cidade,
+            estado: dadosForm.estado,
+            cnpj: dadosForm.cnpj,
+            produtoServico: dadosForm.produtoServico,
+            tipo: tipoUsuario
         };
 
+        let urlDestino = tipoUsuario.toLowerCase() === "cliente" 
+            ? "https://localhost:7093/api/Cliente" 
+            : "https://localhost:7093/api/Fornecedor";
+
         try {
-            const resposta = await fetch(
-                "http://localhost:3000/clientes",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(dados)
-                }
-            );
+            const resposta = await fetch(urlDestino, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify(payload)
+            });
 
             if (resposta.ok) {
-                alert("Cadastro realizado com sucesso!");
+                alert(`${tipoUsuario} cadastrado com sucesso!`);
                 form.reset();
             } else {
-                alert("Erro ao cadastrar.");
+                const detalheErro = await resposta.text();
+                alert(`O servidor recusou os dados (Status ${resposta.status}).\n\nMotivo:\n${detalheErro}`);
             }
 
         } catch (erro) {
-            console.error(erro);
-            alert("Erro ao conectar com o servidor.");
+            alert("Não foi possível conectar com o servidor!\n\nVerifique se o seu projeto está aberto e rodando (Play) no Visual Studio.");
         }
     });
 });
