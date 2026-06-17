@@ -1,0 +1,61 @@
+.clientes-container{
+    width: 850px;
+    height: 650px; /* Mudado para height fixo para forçar a altura visual na tela */
+    margin: 40px auto;
+    background: #171717;
+    border: 1px solid #2f2f2f;
+    border-radius: 8px;
+    padding: 50px;
+    position: relative;
+}
+
+.clientes-table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.clientes-table th{
+    text-align: left;
+    color: #d1d1d1;
+    font-size: 16px;
+    padding-bottom: 20px;
+}
+
+.clientes-table td{
+    color: #8c8c8c;
+    padding: 30px 0;
+}
+
+.editar{
+    text-decoration: none;
+    color: #8c8c8c;
+}
+
+.excluir{
+    text-decoration: none;
+    color: red;
+}
+
+.btn-cadastro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    right: 40px;
+    bottom: 30px;
+
+    width: 180px;
+    height: 42px;
+
+    background: #252525;
+    border: 1px solid #d4af37;
+    border-radius: 8px;
+    color: #d4af37;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-cadastro:hover{
+    background: #2d2d2d;
+}

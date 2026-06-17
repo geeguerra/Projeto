@@ -1,88 +1,164 @@
-body{
- 
+body {
     font-family: "Inter", sans-serif;
+    margin: 0;
     width: 100%;
     min-height: 100vh;
     background: #121212;
-    margin: 0;
-    padding: 0;
-    color: white;
-
-
+    overflow-x: hidden;
 }
 
-.header{
+/* HEADER */
+
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 40px;
     background: #1E1E1E;
+    padding: 15px 30px;
     border-bottom: 1px solid #333;
 }
 
 .titulo-logo {
     display: flex;
     align-items: center;
-    gap: 0.3rem; 
-
+    gap: 20px;
 }
 
+.logo {
+    width: 70px;
+    height: auto;
+}
 
-h1{
+.titulo-logo h1 {
     color: #D4AF37;
-    font-size: 30px;
-
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
 }
 
-img{
-
-   width: 165px;
-    height: 105px;
-
-
-}
-
-.logo { 
-    height: 70px !important; 
-    width: auto !important; 
-    object-fit: contain;
-    flex-shrink: 0;
-}
-
-#conteudo{
-
-  align-items: center;
-}
-
-#Selecionar{
+#menu {
     display: flex;
-    margin-left: 1150px;
-    background: transparent;
-    font-size: 16px;
-    color: #D4AF37;
-    border: none;
-}
-
-#Selecionar option{
-    background-color: #333;
-}
-#menu{
-    display: flex;
-    gap: 30px;
     align-items: center;
+    gap: 25px;
+    flex-wrap: nowrap;
 }
 
-#menu a{
+#menu a {
     color: white;
     text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+#menu a:hover {
+    color: #D4AF37;
+}
+
+/* LOGIN */
+
+.containerLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 90px);
+}
+
+.cardLogin {
+    width: 320px;
+    background: #1E1E1E;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 0 15px #000;
+}
+
+.cardLogin h2 {
+    color: #d9d9d9;
+    text-align: center;
+    font-size: 27px;
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    text-align: center;
+    color: #8f8f8f;
+    font-size: 18px;
+    margin-bottom: 35px;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.campo label {
+    color: #D4AF37;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.campo input,
+.campo select {
+    height: 48px;
+    border-radius: 6px;
+    border: 1px solid #777;
+    background: transparent;
+    padding: 0 12px;
+    color: white;
+    font-size: 15px;
+    outline: none;
+}
+
+button {
+    height: 50px;
+    margin-top: 20px;
+    border-radius: 8px;
+    border: 2px solid #D4AF37;
+    background: transparent;
+    color: #D4AF37;
+    font-size: 22px;
+    cursor: pointer;
     transition: 0.3s;
 }
 
-#menu a:hover{
-    color: #D4AF37;
+button:hover {
+    background: #D4AF37;
+    color: black;
 }
+
+<<<<<<< HEAD
+=======
+.ou {
+    display: block;
+    text-align: center;
+    color: #8f8f8f;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.cadastro {
+    display: block;
+    text-align: center;
+    color: #d9d9d9;
+    font-size: 15px;
+}
+>>>>>>> e94d1cab032bfe71437df920c6c9476bfc8f5e72
+a{
+    color: white;
+    text-decoration: none;
+}
+<<<<<<< HEAD
+=======
 
 a{
     color: white;
     text-decoration: none;
 }
+>>>>>>> e94d1cab032bfe71437df920c6c9476bfc8f5e72
