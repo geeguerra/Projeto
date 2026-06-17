@@ -1,71 +1,63 @@
-const cardform  = document.getElementById("formCadastro");
+const form = document.getElementById("formCadastro");
 
-form.addEventListener("submit", function(event) {
-
+form.addEventListener("submit", async function(event) {
     event.preventDefault();
 
-    const inputs = form.querySelectorAll("input, select");
-
+    // Seleciona apenas os inputs do novo formulário
+    const inputs = form.querySelectorAll("input");
     let formularioValido = true;
 
     inputs.forEach(input => {
-
-        if(input.value.trim() === "") {
-
+        if (input.value.trim() === "") {
             input.style.border = "1px solid red";
             formularioValido = false;
-
         } else {
-
             input.style.border = "1px solid #444";
         }
-
     });
 
-    if(formularioValido) {
-
-        alert("Cadastro realizado com sucesso!");
-        form.reset();
-
-    } else {
-
+    if (!formularioValido) {
         alert("Preencha todos os campos obrigatórios!");
-
+        return; // Para a execução aqui se houver erro
     }
 
-});const form = document.getElementById("formCadastro");
+    // Captura os valores dos campos correspondentes ao Swagger
+    const nome = document.getElementById("nome").value;
+    const cargo = document.getElementById("cargo").value;
+    // Converte o salário para número (float)
+    const salario = parseFloat(document.getElementById("salario").value);
 
-form.addEventListener("submit", function(event) {
+    // Monta o objeto exatamente como a API espera
+    const payload = {
+        id: 0,
+        nome: nome,
+        cargo: cargo,
+        salario: salario
+    };
 
-    event.preventDefault();
+    try {
+        // Lembre-se de confirmar se a porta da sua API é a 5081 olhando a aba do seu Swagger!
+        const urlAPI = "http://localhost:5081/api/Funcionario"; 
 
-    const inputs = form.querySelectorAll("input, select");
+        const response = await fetch(urlAPI, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+        });
 
-    let formularioValido = true;
-
-    inputs.forEach(input => {
-
-        if(input.value.trim() === "") {
-
-            input.style.border = "1px solid red";
-            formularioValido = false;
-
+        if (response.ok) {
+            alert("Cadastro realizado com sucesso!");
+            form.reset();
+            // Reseta as bordas para o padrão após o sucesso
+            inputs.forEach(input => input.style.border = "1px solid #444");
         } else {
-
-            input.style.border = "1px solid #444";
+            alert("Erro ao salvar o funcionário no servidor. Status: " + response.status);
         }
 
-    });
-
-    if(formularioValido) {
-
-        alert("Cadastro realizado com sucesso!");
-        form.reset();
-
-    } else {
-
-        alert("Preencha todos os campos obrigatórios!");
-
+    } catch (error) {
+        console.error("Erro na requisição:", error);
+        alert("Não foi possível conectar ao servidor. Verifique se a API está rodando e se o CORS está ativo.");
     }
-
 });
