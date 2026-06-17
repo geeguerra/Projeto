@@ -1,6 +1,5 @@
-
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Inter";
   margin: 0; 
   width: 100%;
   min-height: 100vh;
@@ -60,7 +59,6 @@ body {
     color: white;
 }
 
-/* A estrutura mágica das colunas */
 .linha-grid {
     display: grid;
     /* Define 4 colunas com larguras proporcionais */
@@ -70,7 +68,6 @@ body {
     border-bottom: 1px solid #222;
 }
 
-/* Estilo do Topo da Tabela */
 .cabecalho-estilo {
     font-weight: bold;
     border-bottom: 1px solid #444;
@@ -83,7 +80,6 @@ body {
     text-align: right;
 }
 
-/* Botões e Ações */
 .acoes {
     display: flex;
     justify-content: flex-end;
@@ -116,7 +112,7 @@ body {
 }
 
 a{
-    color: #E0E0E0;
+    color: #D4AF37;
     text-decoration: none;
 }
 
@@ -137,6 +133,19 @@ nav a:hover {
     color: #D4AF37;
 }
 
-a{
+.btn-float {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: 1px solid #D4AF37;
+    border-radius: 5px;
     color: #D4AF37;
+    text-decoration: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.btn-float:hover {
+    background-color: #D4AF37;
+    color: #121212;
 }
