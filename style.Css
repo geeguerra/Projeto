@@ -14,8 +14,6 @@ body {
     overflow-x: hidden;
 }
 
-/* HEADER */
-
 header {
     display: flex;
     justify-content: space-between;
@@ -66,8 +64,6 @@ header {
 #menu a:hover {
     color: #D4AF37;
 }
-
-/* LOGIN */
 
 .containerLogin {
     display: flex;

@@ -13,16 +13,14 @@ document.addEventListener('DOMContentLoaded', () => {
             // Cria o objeto exatamente igual ao Swagger
             const dadosProduto = {
                 nomeProduto: nomeInput,
-                codigo: parseInt(codigoInput) || 0, // Se no swagger for string, mude para: codigoInput
+                codigo: parseInt(codigoInput) || 0,
                 quantidadeEstoque: parseInt(estoqueInput) || 0,
-                // Uma limpeza mais segura para o preço:
+    
                 preco: parseFloat(precoInput.replace('R$', '').replace(',', '.').trim()) || 0
             };
-
-            // ABRA O CONSOLE E COMPARE ESTE PRINT COM O JSON DO SWAGGER:
             console.log("JSON QUE O FRONT ESTÁ GERANDO:", JSON.stringify(dadosProduto));
 
-            const URL_API = 'https://localhost:7093/api/Produtos'; 
+            const URL_API = ' http://localhost:5104/api/Produtos'; 
 
             try {
                 const response = await fetch(URL_API, {

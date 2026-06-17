@@ -2,8 +2,6 @@ const form = document.getElementById("formCadastro");
 
 form.addEventListener("submit", async function(event) {
     event.preventDefault();
-
-    // Seleciona apenas os inputs do novo formulário
     const inputs = form.querySelectorAll("input");
     let formularioValido = true;
 
@@ -18,16 +16,13 @@ form.addEventListener("submit", async function(event) {
 
     if (!formularioValido) {
         alert("Preencha todos os campos obrigatórios!");
-        return; // Para a execução aqui se houver erro
+        return; 
     }
 
-    // Captura os valores dos campos correspondentes ao Swagger
     const nome = document.getElementById("nome").value;
     const cargo = document.getElementById("cargo").value;
-    // Converte o salário para número (float)
     const salario = parseFloat(document.getElementById("salario").value);
 
-    // Monta o objeto exatamente como a API espera
     const payload = {
         id: 0,
         nome: nome,
@@ -36,8 +31,8 @@ form.addEventListener("submit", async function(event) {
     };
 
     try {
-        // Lembre-se de confirmar se a porta da sua API é a 5081 olhando a aba do seu Swagger!
-        const urlAPI = "http://localhost:5081/api/Funcionario"; 
+
+        const urlAPI = " http://localhost:5104/api/Funcionario"; 
 
         const response = await fetch(urlAPI, {
             method: "POST",
@@ -50,7 +45,6 @@ form.addEventListener("submit", async function(event) {
         if (response.ok) {
             alert("Cadastro realizado com sucesso!");
             form.reset();
-            // Reseta as bordas para o padrão após o sucesso
             inputs.forEach(input => input.style.border = "1px solid #444");
         } else {
             alert("Erro ao salvar o funcionário no servidor. Status: " + response.status);

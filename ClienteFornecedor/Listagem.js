@@ -1,10 +1,5 @@
-// =========================================================================
-// CONFIGURAÇÃO: URLs reais da sua API local
-// =========================================================================
-const URL_CLIENTES = 'https://localhost:7093/api/Cliente'; 
-const URL_FORNECECORES = 'https://localhost:7093/api/Fornecedor'; 
-
-// Mude para 'false' para puxar do banco através da API. Deixe 'true' para testes rápidos.
+const URL_CLIENTES = ' http://localhost:5104/api/Cliente'; 
+const URL_FORNECECORES = ' http://localhost:5104/api/Fornecedor'; 
 const USAR_DADOS_DE_TESTE = false; 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function carregarDadosUnificados() {
-    // Seleciona o corpo da tabela pelo ID que adicionamos no HTML
     const corpoTabela = document.getElementById('corpo-tabela');
 
     if (!corpoTabela) {
@@ -27,7 +21,6 @@ async function carregarDadosUnificados() {
             console.warn("⚠️ Exibindo dados de teste fictícios.");
             listaFinal = obterDadosFicticios();
         } else {
-            // Busca nas duas APIs simultaneamente
             const [resClientes, resFornecedores] = await Promise.all([
                 fetch(URL_CLIENTES),
                 fetch(URL_FORNECECORES)
@@ -39,7 +32,6 @@ async function carregarDadosUnificados() {
             const clientes = await resClientes.json();
             const fornecedores = await resFornecedores.json();
 
-            // Mapeia os dados tratando maiúsculas e minúsculas vindas da API
             const clientesFormatados = clientes.map(c => ({
                 id: c.id || c.Id,
                 nome: c.nome || c.Nome,
@@ -54,15 +46,10 @@ async function carregarDadosUnificados() {
                 tipo: 'Fornecedor'
             }));
 
-            // Une as listas e ordena alfabeticamente
             listaFinal = [...clientesFormatados, ...fornecedoresFormatados];
             listaFinal.sort((a, b) => a.nome.localeCompare(b.nome));
         }
-
-        // Limpa a tabela antes de adicionar as novas linhas
         corpoTabela.innerHTML = '';
-
-        // Renderiza cada item como uma linha de tabela (tr)
         listaFinal.forEach(item => {
             const linha = document.createElement('tr');
             
@@ -81,7 +68,6 @@ async function carregarDadosUnificados() {
                 </td>
             `;
 
-            // Coloca a linha dentro do corpo da tabela
             corpoTabela.appendChild(linha);
         });
 

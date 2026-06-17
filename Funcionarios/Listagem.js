@@ -1,4 +1,4 @@
-const API_URL = "https://localhost:7093/api/Funcionario"; 
+const API_URL = " http://localhost:5104/api/Funcionario"; 
 
 async function carregarFuncionarios() {
     const lista = document.getElementById('lista-funcionarios');
@@ -12,7 +12,6 @@ async function carregarFuncionarios() {
 
         funcionarios.forEach(func => {
             const linha = document.createElement('div');
-            // Usa a mesma classe de grid do cabeçalho
             linha.className = 'linha-grid'; 
             
             linha.innerHTML = `

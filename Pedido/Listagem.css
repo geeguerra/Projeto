@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-/* 1. Boa prática universal */
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -17,38 +15,37 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
-  /* Reduzido o padding do container para aproximar o card do topo */
   padding: 30px 20px; 
 }
 
 .card {
   width: 100%;
-  max-width: 1100px; /* Reduzido levemente a largura máxima */
+  max-width: 1100px;
   min-height: auto;   /* Removido o min-height fixo exagerado para o card se moldar ao conteúdo */
   background-color: #1E1E1E;
   border-radius: 8px;
-  padding: 35px;      /* Reduzido de 50px para 35px */
+  padding: 35px;     
 }
 
 .card h2 {
   text-align: center;
   color: #D4AF37;
-  font-size: 28px;    /* Reduzido de 38px para 28px (tamanho bem mais comercial) */
+  font-size: 28px;  
   font-weight: 600;
   margin-top: 0;
-  margin-bottom: 30px; /* Reduzido de 60px para 30px */
+  margin-bottom: 30px; 
 }
 
 .search-box {
-  max-width: 350px;   /* Reduzido de 420px para 350px */
+  max-width: 350px;   
   width: 100%;
-  height: 42px;       /* Reduzido de 55px para 42px (mais elegante) */
-  border: 1px solid #444444; /* Borda mais fina e discreta que o #777 antigo */
+  height: 42px;       
+  border: 1px solid #444444;
   border-radius: 6px;
   display: flex;
   align-items: center;
   padding: 0 12px;
-  margin-bottom: 35px; /* Reduzido drasticamente de 90px para 35px */
+  margin-bottom: 35px; 
 }
 
 .search-box input {
@@ -64,16 +61,15 @@ body {
 .pedido-lista {
   display: flex;
   flex-direction: column; 
-  gap: 12px;          /* Reduzido o espaço entre os itens de 28px para 12px */
+  gap: 12px; 
 }
 
 .pedido-item {
   width: 100%;
   height: 48px;       /* Reduzido de 58px para 48px */
-  border: 1px solid #333333; /* Linhas mais sutis */
-  border-radius: 6px;
+  border: 1px solid #333333;
   display: grid;
-  grid-template-columns: 80px 1fr 140px 120px; /* Ajustado proporções das colunas */
+  grid-template-columns: 80px 1fr 140px 120px; 
   align-items: center;
   padding: 0 15px;
   color: #BDBDBD;
@@ -101,8 +97,7 @@ body {
   color: #E0E0E0;     /* Um pouco mais claro para dar leitura no fundo escuro */
   font-weight: 500;
 }
-=======
-<<<<<<< HEAD
+ HEAD
 body {
   font-family: "Inter";
   margin: 0; 
@@ -136,16 +131,14 @@ body{
 }
 
 .header{
-=======
-/* 1. Boa prática universal: garante que padding e border não alterem o tamanho final do elemento */
 *, *::before, *::after {
     box-sizing: border-box;
   }
+}
   
   body {
     font-family: "Inter", sans-serif;
     margin: 0; 
->>>>>>> 62dbf3691317b4ae9f96b7d6658860ff7cfba3b3
     width: 100%;
     min-height: 100vh;
     background: #121212;
@@ -234,11 +227,9 @@ body{
   .total {
     color: #8F8F8F;
   }
->>>>>>> f259d3d3464e484f9bc48909a74ea2f0615dcd23
-
 .nome-cliente {
   font-weight: 500;      
-  color: #FFFFFF;     /* Corrigido: Estava #333333 (escuro), sumia no fundo escuro do card */
+  color: #FFFFFF;  /* Corrigido: Estava #333333 (escuro), sumia no fundo escuro do card */
 }    
 
 .pedido-item .status {

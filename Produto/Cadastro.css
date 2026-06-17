@@ -1,4 +1,3 @@
-/* CONTAINER PRINCIPAL */
 * {
     margin: 0;
     padding: 0;
@@ -13,8 +12,6 @@
     padding: 30px;
     background-color: #0d0d0d;
 }
-
-/* CARD */
 .form-card {
     width: 100%;
     max-width: 900px;
@@ -28,8 +25,6 @@
         inset 0 0 10px rgba(255,255,255,0.02);
     margin: 30px auto;
 }
-
-/* TÍTULO */
 .form-title {
     text-align: center;
     margin-bottom: 60px;
@@ -48,7 +43,6 @@
     font-family: Arial, sans-serif;
 }
 
-/* GRID DOS INPUTS */
 .form-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -92,7 +86,6 @@
     color: #888888;
 }
 
-/* LISTA DE PRODUTOS */
 .product-list-container {
     background-color: #252525;
     border: 1px solid #333333;
@@ -120,7 +113,6 @@
     padding-top: 15px;
 }
 
-/* BOTÃO */
 .form-footer {
     display: flex;
     justify-content: flex-end;
@@ -144,7 +136,6 @@
     color: #000000;
 }
 
-/* RESPONSIVO */
 @media (max-width: 600px) {
     .form-grid {
         grid-template-columns: 1fr;

@@ -33,8 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         let urlDestino = tipoUsuario.toLowerCase() === "cliente" 
-            ? "https://localhost:7093/api/Cliente" 
-            : "https://localhost:7093/api/Fornecedor";
+            ? " http://localhost:5104/api/Cliente" 
+            : " http://localhost:5104/api/Fornecedor";
 
         try {
             const resposta = await fetch(urlDestino, {

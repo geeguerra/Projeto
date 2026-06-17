@@ -1,4 +1,4 @@
-const BASE_URL = "https://localhost:7093/api/Estoque";
+const BASE_URL = " http://localhost:5104/api/Estoque";
 
 let movimentacaoEditandoId = null;
 
@@ -37,7 +37,7 @@ async function carregarProdutos() {
         console.log("Iniciando carregamento dos produtos...");
 
         const response =
-            await fetch("https://localhost:7093/api/Produtos");
+            await fetch(" http://localhost:5104/api/Produtos");
 
         console.log("Status:", response.status);
 

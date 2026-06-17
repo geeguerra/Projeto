@@ -1,4 +1,4 @@
-const api = 'http://localhost:7093/api/Financeiro';
+const api = ' http://localhost:5104/api/Financeiro';
 const tabela = document.querySelector("tbody");
 
 

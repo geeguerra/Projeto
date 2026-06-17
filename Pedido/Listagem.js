@@ -1,27 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Primeiro criamos o array de controle na memória
     let todosOsPedidos = [];
-
-    // --- SELETORES SEGUROS DO SEU LAYOUT CINZA ---
     const containerListagem = document.querySelector('.card-container') || 
                                document.querySelector('.card') || 
                                document.querySelector('main > div') ||
                                document.querySelector('main');
                                
     const inputBusca = document.querySelector('input[placeholder="Buscar produto"]');
-
-    // 2. Agora que tudo foi mapeado, chamamos a função com segurança
     carregarPedidos();
 
-    // --- CARREGA OS PEDIDOS ARMAZENADOS NO NAVEGADOR ---
     function carregarPedidos() {
         console.log("Modo de gerenciamento local ativo via LocalStorage.");
-
-        // Busca a lista de pedidos gravados no armazenamento local
         const historicoLocal = JSON.parse(localStorage.getItem('pedidos_locais')) || [];
 
         if (historicoLocal.length === 0) {
-            // Se estiver limpo, preenche com os exemplos padrão para renderizar a tela
             todosOsPedidos = [
                 { id: 1, status: "Em andamento", total: 160.00, clienteId: 12 },
                 { id: 2, status: "Concluído", total: 20.00, clienteId: 5 }
@@ -33,20 +24,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         renderizarCardsDePedidos(todosOsPedidos);
     }
-
-    // --- MONTA OS CARDS VISUAIS NA SUA TELA ---
     function renderizarCardsDePedidos(listaDePedidos) {
         if (!containerListagem) return;
 
-        // Limpa avisos e duplicados sem apagar o título ou a caixa de busca original
         const itensAntigos = containerListagem.querySelectorAll('.pedido-card-item, .mensagem-vazia');
         itensAntigos.forEach(item => item.remove());
 
         listaDePedidos.forEach(pedido => {
             const card = document.createElement('div');
             card.className = "pedido-card-item";
-            
-            // Estilização injetada idêntica ao padrão de design escuro e dourado do sistema
             card.style.backgroundColor = "#242424";
             card.style.border = "1px solid #3a3a3a";
             card.style.borderRadius = "6px";
@@ -56,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
             card.style.flexDirection = "column";
             card.style.gap = "12px";
 
-            // Tratamento dinâmico das cores do status
             const statusLower = (pedido.status || "").toLowerCase();
             let corBadge = "#524516"; // Amarelado
             let corTexto = "#ffd54f";
@@ -91,8 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
             containerListagem.appendChild(card);
         });
     }
-
-    // --- FILTRO DINÂMICO PARA A BARRA DE BUSCA ---
     if (inputBusca) {
         inputBusca.addEventListener('input', (e) => {
             const termo = e.target.value.toLowerCase().trim();
