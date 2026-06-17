@@ -4,7 +4,7 @@
 const URL_CLIENTES = 'https://localhost:7093/api/Cliente'; 
 const URL_FORNECECORES = 'https://localhost:7093/api/Fornecedor'; 
 
-// Mude para 'false' para puxar direto do seu banco de dados através da API
+// Mude para 'false' para puxar do banco através da API. Deixe 'true' para testes rápidos.
 const USAR_DADOS_DE_TESTE = false; 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,12 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function carregarDadosUnificados() {
-    // SELEÇÃO INTELIGENTE:
-    // Pegamos a primeira div dentro do corpo da página que tem um botão (que é o seu card)
-    const containerLista = document.querySelector('button')?.parentElement?.parentElement || document.body;
-    
-    // Pegamos o container do botão "Cadastrar" (o pai direto do button) para usarmos como âncora
-    const elementoAncoragem = document.querySelector('button')?.parentElement;
+    // Seleciona o corpo da tabela pelo ID que adicionamos no HTML
+    const corpoTabela = document.getElementById('corpo-tabela');
+
+    if (!corpoTabela) {
+        console.error('Erro: Não foi possível encontrar o elemento <tbody id="corpo-tabela"> no HTML.');
+        return;
+    }
 
     try {
         let listaFinal = [];
@@ -38,7 +39,7 @@ async function carregarDadosUnificados() {
             const clientes = await resClientes.json();
             const fornecedores = await resFornecedores.json();
 
-            // Mapeia os dados aceitando propriedades Minúsculas ou Maiúsculas vindas da API
+            // Mapeia os dados tratando maiúsculas e minúsculas vindas da API
             const clientesFormatados = clientes.map(c => ({
                 id: c.id || c.Id,
                 nome: c.nome || c.Nome,
@@ -53,59 +54,41 @@ async function carregarDadosUnificados() {
                 tipo: 'Fornecedor'
             }));
 
-            // Une e ordena por ordem alfabética
+            // Une as listas e ordena alfabeticamente
             listaFinal = [...clientesFormatados, ...fornecedoresFormatados];
             listaFinal.sort((a, b) => a.nome.localeCompare(b.nome));
         }
 
-        // Limpa registros antigos gerados dinamicamente
-        removerLinhasAntigas(containerLista);
+        // Limpa a tabela antes de adicionar as novas linhas
+        corpoTabela.innerHTML = '';
 
-        // Renderiza cada item dentro do card com a nova coluna de "Tipo"
+        // Renderiza cada item como uma linha de tabela (tr)
         listaFinal.forEach(item => {
-            const linha = document.createElement('div');
-            // Usamos exatamente a classe que você já estilizou no seu projeto
-            linha.className = 'linha-registro dinamicamente-adicionada'; 
+            const linha = document.createElement('tr');
             
-            // Estilos de alinhamento mantendo o padrão do seu layout
-            linha.style.display = 'flex';
-            linha.style.justifyContent = 'space-between';
-            linha.style.alignItems = 'center';
-            linha.style.padding = '12px 0';
-            linha.style.width = '100%';
-
-            // Define a cor da tag (Amarelo ouro para Cliente, Laranja escuro para Fornecedor)
-            const corTipo = item.tipo === 'Cliente' ? '#ffd700' : '#e67e22';
+            // Define a cor para a identificação do Tipo (Amarelo para Cliente, Laranja para Fornecedor)
+            const corTipo = item.tipo === 'Cliente' ? '#ffd700' : '#2ecc71';
 
             linha.innerHTML = `
-                <span style="flex: 1.2; text-align: left; color: #fff;">${item.nome}</span>
-                <span style="flex: 1.2; text-align: left; color: #aaa;">${item.telefone}</span>
-                <span style="flex: 1; color: ${corTipo}; font-weight: bold; font-size: 11px; letter-spacing: 1px; text-align: left;">
+                <td>${item.nome}</td>
+                <td>${item.telefone}</td>
+                <td style="color: ${corTipo}; font-weight: bold; font-size: 12px; letter-spacing: 1px;">
                     ${item.tipo.toUpperCase()}
-                </span>
-                <div style="flex: 1; text-align: right; font-size: 14px;">
+                </td>
+                <td style="text-align: right;">
                     <span style="cursor: pointer; margin-right: 15px; color: #888;" onclick="editarItem(${item.id}, '${item.tipo}')">Editar</span>
                     <span style="cursor: pointer; color: #ff4d4d; font-weight: 500;" onclick="excluirItem(${item.id}, '${item.tipo}')">Excluir</span>
-                </div>
+                </td>
             `;
 
-            // Insere dinamicamente dentro do card, logo antes do bloco do botão Cadastrar
-            if (elementoAncoragem) {
-                containerLista.insertBefore(linha, elementoAncoragem);
-            } else {
-                containerLista.appendChild(linha);
-            }
+            // Coloca a linha dentro do corpo da tabela
+            corpoTabela.appendChild(linha);
         });
 
     } catch (error) {
         console.error('Erro de conexão:', error);
-        alert('Erro ao carregar dados. Verifique o console do navegador e se o back-end está ativo.');
+        alert('Erro ao carregar dados. Verifique se o back-end está ativo na porta 7093.');
     }
-}
-
-function removerLinhasAntigas(container) {
-    const linhas = container.querySelectorAll('.dinamicamente-adicionada');
-    linhas.forEach(linha => linha.remove());
 }
 
 function editarItem(id, tipo) {
@@ -135,11 +118,10 @@ async function excluirItem(id, tipo) {
     }
 }
 
+
 function obterDadosFicticios() {
     return [
         { id: 1, nome: "Ana Clara", telefone: "(14)12345-6789", tipo: "Cliente" },
-        { id: 2, nome: "Larissa Goumer", telefone: "(14)775849-5678", tipo: "Fornecedor" },
-        { id: 3, nome: "Pedro Henrique", telefone: "(14)22334-6687", tipo: "Cliente" },
-        { id: 4, nome: "Antonio Santos", telefone: "(14)34568-7543", tipo: "Fornecedor" }
+        { id: 2, nome: "Larissa Goumer", telefone: "(14)775849-5678", tipo: "Fornecedor" }
     ];
 }

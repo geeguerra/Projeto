@@ -3,18 +3,15 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Gestão</title>
-
-    <link rel="stylesheet" href="../../hearder.css">
+     <link rel="stylesheet" href="../hearder.css">
     <link rel="stylesheet" href="Cadatros.css">
-
-    
 </head>
 
 <body>
 
     <header class="header">
-
         <div class="titulo-logo">
             <img src="../../assets/logo.png" alt="Logo" class="logo">
             <h1>Sistema de Gestão | Succeed & Failed</h1>
@@ -27,13 +24,11 @@
             <a href="../Estoque/Cadastro.html">Estoque</a>
             <a href="../Fornecedor/FornecedorCliente.html">Fornecedores</a>
             <a href="../Produto/Cadastro.html">Produtos</a>
-            <a href="../Estoque/Cadastro.html">Estoque</a>
             <a href="../Financeiro/Pagamento.html">Pagamento</a>
             <a href="../Pedido/Cadastro.html">Pedido</a>
             <a href="../Pedido/Listagem.html">Listagem</a>
-
         </nav>
-        </header>
+    </header>
     
 
     <main class="container">
@@ -44,70 +39,68 @@
             <div class="form-grid">
                 <div class="input-group">
                     <label>Nome completo/Empresa *</label>
-                    <input type="text" placeholder="Digite o nome completo ou empresa">
+                    <input type="text" name="nome" placeholder="Digite o nome completo ou empresa" required>
                 </div>
 
                 <div class="input-group">
                     <label>Data de nascimento *</label>
-
-                    <input type="date" placeholder="dd/mm/aaaa">
-    
+                    <input type="date" name="dataNascimento">
                 </div>
 
                 <div class="input-group">
                     <label>Bairro *</label>
-                    <input type="text" placeholder="Digite o bairro">
+                    <input type="text" name="bairro" placeholder="Digite o bairro">
                 </div>
 
                 <div class="input-group">
                     <label>E-mail *</label>
-                    <input type="email" placeholder="Exemplo@gmail.com">
+                    <input type="email" name="email" placeholder="Exemplo@gmail.com">
                 </div>
 
                 <div class="input-group">
                     <label>Produto/Serviço fornecido *</label>
-                    <input type="text" placeholder="Digite o produto ou serviço">
+                    <input type="text" name="produtoServico" placeholder="Digite o produto ou serviço">
                 </div>
 
                 <div class="input-group">
                     <label>Nº da casa *</label>
-                    <input type="text" placeholder="Digite o numero">
+                    <input type="text" name="numeroCasa" placeholder="Digite o numero">
                 </div>
 
                 <div class="input-group">
                     <label>Telefone *</label>
-                    <input type="text" placeholder="(00)00000-0000">
+                    <input type="text" name="telefone" placeholder="(00)00000-0000">
                 </div>
 
                 <div class="input-group">
                     <label>CPF *</label>
-                    <input type="text" placeholder="00.000.000-00">
+                    <input type="text" name="cpf" placeholder="00.000.000-00">
                 </div>
 
                 <div class="input-group">
                     <label>Complemento *</label>
-                    <input type="text" placeholder="Exemplo completo: Bloco B, Apto 301">
+                    <input type="text" name="complemento" placeholder="Exemplo completo: Bloco B, Apto 301">
                 </div>
 
                 <div class="input-group">
                     <label>CNPJ*</label>
-                    <input type="text" placeholder="00.000.000/0000-00">
+                    <input type="text" name="cnpj" placeholder="00.000.000/0000-00">
                 </div>
 
                 <div class="input-group">
                     <label>Cep *</label>
-                    <input type="text" placeholder="00000-0000">
+                    <input type="text" name="cep" placeholder="00000-0000">
                 </div>
 
                 <div class="input-row-special">
                     <div class="input-group">
                         <label>Cidade *</label>
-                        <input type="text" placeholder="Digite a cidade">
+                        <input type="text" name="cidade" placeholder="Digite a cidade">
                     </div>
                     <div class="input-group">
                         <label>Estado *</label>
-                        <select>
-                            <option>Selecione ▾</option>
+                        <select name="estado">
+                            <option value="">Selecione ▾</option>
                             <option value="São Paulo">São Paulo</option>
                             <option value="Minas Gerais">Minas Gerais</option>
                             <option value="Rio de Janeiro">Rio de Janeiro</option>
@@ -119,16 +112,15 @@
 
                 <div class="input-group full-width">
                     <label>Endereço *</label>
-                    <input type="text" placeholder="Digite o seu Endereço....">
+                    <input type="text" name="endereco" placeholder="Digite o seu Endereço....">
                 </div>
                 
 
                 <div class="input-group">
                     <label>Tipo * :</label>
-                    <select>
-                        <option>Selecione ▾</option>
-                        <option value="Fornecedor">Fornecedor</option>
+                    <select id="tipo" name="tipo">
                         <option value="Cliente">Cliente</option>
+                        <option value="Fornecedor">Fornecedor</option>
                     </select>
                 </div>
             </div>
@@ -137,5 +129,6 @@
         </form>
     </main>
 
+    <script src="Cadastro.js"></script>
 </body>
 </html>
