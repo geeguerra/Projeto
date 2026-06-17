@@ -11,6 +11,7 @@ form.addEventListener("submit", async function(event) {
         if (input.value.trim() === "") {
             input.style.border = "1px solid red";
             formularioValido = false;
+            
         } else {
             input.style.border = "1px solid #444";
         }

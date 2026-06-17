@@ -122,10 +122,12 @@ body {
  .input-row-special .input-group:first-child {
      flex: 2;
  }
+
  
  .input-row-special .input-group:last-child {
      flex: 1;
  }
+ 
  
  .btn-submit {
      margin-top: 40px;
